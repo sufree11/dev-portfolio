@@ -5,90 +5,38 @@ import './Background.css'
 
 export default function Background() {
   const [phase, setPhase] = useState('intro')
-  const introVideoRef = useRef(null)
-  const loopVideoRef = useRef(null)
-  const loopReadyRef = useRef(false)
-  const introEndedRef = useRef(false)
+  const videoRef = useRef(null)
 
   useEffect(() => {
-    const playVideo = async (video) => {
-      if (!video) return
+    const video = videoRef.current
+    if (!video) return
 
-      try {
-        await video.play()
-      } catch {
-        // Autoplay can be blocked briefly on some browsers; the next
-        // user-visible state change will re-attempt playback.
-      }
-    }
-
-    playVideo(introVideoRef.current)
-
-    const intro = introVideoRef.current
-    const loop = loopVideoRef.current
-
-    const startLoop = () => {
-      if (!loop) return
-
-      loop.currentTime = 0
-      playVideo(loop)
-
-      if (introEndedRef.current) {
-        setPhase('loop')
-      }
-    }
-
-    const handleIntroEnded = () => {
-      introEndedRef.current = true
-      setPhase('loop')
-
-      if (loopReadyRef.current) {
-        startLoop()
-        return
-      }
-
-      if (loop) {
-        loop.currentTime = 0
-        loop.load()
-      }
-    }
-
-    const handleLoopReady = () => {
-      loopReadyRef.current = true
-
-      if (introEndedRef.current) {
-        startLoop()
-      }
-    }
-
-    intro?.addEventListener('ended', handleIntroEnded)
-    loop?.addEventListener('canplaythrough', handleLoopReady)
-    loop?.addEventListener('loadeddata', handleLoopReady)
-
-    if (loop) {
-      loop.currentTime = 0
-      loop.load()
-      loop.play().catch(() => {})
-    }
-
-    return () => {
-      intro?.removeEventListener('ended', handleIntroEnded)
-      loop?.removeEventListener('canplaythrough', handleLoopReady)
-      loop?.removeEventListener('loadeddata', handleLoopReady)
-    }
+    video.play().catch(() => {})
   }, [])
 
   useEffect(() => {
-    if (phase !== 'loop') return
+    const video = videoRef.current
+    if (!video) return
 
-    const loop = loopVideoRef.current
-    if (!loop) return
-
-    if (loopReadyRef.current) {
-      loop.currentTime = 0.04
-      loop.play().catch(() => {})
+    if (phase === 'loop') {
+      video.currentTime = 0
     }
+
+    video.play().catch(() => {})
   }, [phase])
+
+  const handleEnded = () => {
+    if (phase === 'intro') {
+      setPhase('loop')
+    }
+  }
+
+  const handleCanPlay = () => {
+    const video = videoRef.current
+    if (!video) return
+
+    video.play().catch(() => {})
+  }
 
   return (
     <div className="persona-bg" aria-hidden="true">
@@ -98,22 +46,16 @@ export default function Background() {
       <div className="persona-bg__slash persona-bg__slash--pink" />
       <div className="persona-bg__slash persona-bg__slash--blue" />
       <video
-        ref={introVideoRef}
-        className={`bg-video bg-video--intro ${phase === 'intro' ? 'is-active' : ''}`}
-        src={introVideo}
+        ref={videoRef}
+        className={`bg-video ${phase === 'loop' ? 'bg-video--loop' : 'bg-video--intro'} is-active`}
+        src={phase === 'loop' ? loopVideo : introVideo}
         autoPlay
+        loop={phase === 'loop'}
         muted
         playsInline
         preload="auto"
-      />
-      <video
-        ref={loopVideoRef}
-        className={`bg-video bg-video--loop ${phase === 'loop' ? 'is-active' : 'is-warm'}`}
-        src={loopVideo}
-        loop
-        muted
-        playsInline
-        preload="auto"
+        onEnded={handleEnded}
+        onCanPlay={handleCanPlay}
       />
       <div className="persona-bg__overlay" />
       <div className="persona-bg__frame persona-bg__frame--top" />
