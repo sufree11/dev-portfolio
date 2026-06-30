@@ -22,7 +22,7 @@ export default function App() {
 
     timeline
       .add({
-        targets: '.nav-brand, .nav-links li',
+        targets: '.nav-brand, .menu-item',
         opacity: [0, 1],
         translateY: [18, 0],
         delay: anime.stagger(85),
@@ -78,15 +78,30 @@ export default function App() {
       <div className="layout persona-layout">
 
         <nav className="nav" aria-label="Primary navigation">
-          <span className="nav-brand">
+          <span className="nav-brand nav-brand--top">
             <span className="nav-brand-mark" aria-hidden="true">P3R</span>
-            <span className="nav-brand-text">SUFREE / PORTFOLIO</span>
+            <span className="nav-brand-text">Body Text And Menu</span>
           </span>
-          <ul className="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
+
+          <ul className="nav-links nav-menu-list">
+            <li className="menu-item menu-item--heading">
+              <a href="#about" className="menu-link" data-text="Heading">
+                <span className="menu-link-inner" data-text="Heading">About</span>
+              </a>
+            </li>
+            <li className="menu-item menu-item--command">
+              <a href="#projects" className="menu-link" data-text="Command">
+                <span className="menu-link-inner" data-text="Command">Projects</span>
+              </a>
+            </li>
+            <li className="menu-item menu-item--logo">
+              <a href="#education" className="menu-link" data-text="Logo">
+                <span className="menu-link-inner" data-text="Logo">Education</span>
+              </a>
+            </li>
           </ul>
+
+          <span className="nav-brand nav-brand--bottom">New Rodin Pro / Command</span>
         </nav>
 
         <main>

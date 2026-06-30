@@ -10,6 +10,10 @@
   --color-bg: #09090c;
   --color-surface: rgba(12, 13, 18, 0.92);
   --color-surface-strong: rgba(18, 20, 28, 0.98);
+  --color-cyan-1: #16cffb;
+  --color-cyan-2: #7de6fd;
+  --color-cyan-3: #77fefc;
+  --color-magenta: #ff0055;
   --color-text: #f7f8fb;
   --color-text-soft: #d6dae8;
   --color-text-dim: #9ca3b4;
@@ -19,6 +23,7 @@
 
   --font-body: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --font-heading: 'Bebas Neue', 'Arial Black', sans-serif;
+  --font-menu: 'Saira Condensed', 'Arial Narrow', sans-serif;
   --font-command: 'Saira Condensed', 'Arial Narrow', sans-serif;
   --font-logo: 'Press Start 2P', monospace;
 

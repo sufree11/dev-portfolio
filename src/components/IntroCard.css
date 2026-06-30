@@ -9,9 +9,11 @@
   font-family: var(--font-command);
   font-size: 0.82rem;
   color: var(--color-text-dim);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.4rem;
+  transform: scaleY(1.14) scaleX(0.95);
+  transform-origin: left center;
 }
 
 .intro-name {
@@ -21,16 +23,20 @@
   line-height: 1;
   margin-bottom: 0.1rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.02em;
+  transform: scaleY(1.2) scaleX(0.9);
+  transform-origin: left center;
 }
 
 .intro-title {
   font-family: var(--font-command);
   font-size: 1.08rem;
   color: var(--color-accent-red);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   margin-bottom: 1.05rem;
   text-transform: uppercase;
+  transform: scaleY(1.16) scaleX(0.94);
+  transform-origin: left center;
 }
 
 .intro-bio {
