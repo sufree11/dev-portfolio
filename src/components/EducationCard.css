@@ -1,0 +1,73 @@
+.edu-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.edu-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.edu-institution {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+}
+
+.edu-period {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+}
+
+.edu-degree {
+  font-size: 0.92rem;
+  color: var(--color-text);
+}
+
+.edu-field {
+  color: var(--color-secondary);
+}
+
+.edu-gpa {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+}
+
+.highlight-val {
+  color: var(--color-accent);
+}
+
+.edu-achievements {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-left: 0.2rem;
+  margin-top: 0.25rem;
+}
+
+.edu-achievements li {
+  font-size: 0.86rem;
+  color: var(--color-text);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.edu-achievements li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  color: var(--color-secondary);
+  font-size: 0.6rem;
+  top: 0.28em;
+}
+
+.cyber-card:hover .edu-achievements li::before {
+  color: var(--color-accent);
+}
