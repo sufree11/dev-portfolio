@@ -22,10 +22,9 @@ export default function App() {
 
     timeline
       .add({
-        targets: '.nav-brand, .menu-item',
+        targets: '.nav-shell',
         opacity: [0, 1],
         translateY: [18, 0],
-        delay: anime.stagger(85),
       })
       .add({
         targets: '.intro-card',
@@ -78,29 +77,27 @@ export default function App() {
       <div className="layout persona-layout">
 
         <nav className="nav" aria-label="Primary navigation">
-          <span className="nav-brand nav-brand--top">
-            <span className="nav-brand-mark" aria-hidden="true">P3R</span>
-          </span>
+          <div className="nav-shell">
+            <span className="nav-brand nav-brand--top">Menu</span>
 
-          <ul className="nav-links nav-menu-list">
-            <li className="menu-item menu-item--heading">
-              <a href="#about" className="menu-link">
-                <span className="menu-link-inner" data-text="Heading">About</span>
-              </a>
-            </li>
-            <li className="menu-item menu-item--command">
-              <a href="#projects" className="menu-link">
-                <span className="menu-link-inner" data-text="Command">Projects</span>
-              </a>
-            </li>
-            <li className="menu-item menu-item--logo">
-              <a href="#education" className="menu-link">
-                <span className="menu-link-inner" data-text="Logo">Education</span>
-              </a>
-            </li>
-          </ul>
-
-        
+            <ul className="nav-links nav-menu-list">
+              <li className="menu-item menu-item--heading">
+                <a href="#about" className="menu-link">
+                  <span className="menu-link-inner" data-text="Heading">About</span>
+                </a>
+              </li>
+              <li className="menu-item menu-item--command">
+                <a href="#projects" className="menu-link">
+                  <span className="menu-link-inner" data-text="Command">Projects</span>
+                </a>
+              </li>
+              <li className="menu-item menu-item--logo">
+                <a href="#education" className="menu-link">
+                  <span className="menu-link-inner" data-text="Logo">Education</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
 
         <main>

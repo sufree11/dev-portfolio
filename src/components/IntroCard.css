@@ -62,12 +62,30 @@
 }
 
 .intro-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
   font-family: var(--font-body);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transform: scaleY(1.12) scaleX(0.95);
   color: #ffffff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.intro-link-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-link-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  opacity: 0.95;
 }
 
 .divider {

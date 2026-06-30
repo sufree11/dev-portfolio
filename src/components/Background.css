@@ -5,10 +5,10 @@
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(circle at 16% 28%, rgba(22, 207, 251, 0.24), transparent 18%),
-    radial-gradient(circle at 82% 14%, rgba(255, 0, 85, 0.18), transparent 20%),
-    radial-gradient(circle at 50% 78%, rgba(119, 254, 252, 0.14), transparent 28%),
-    linear-gradient(180deg, #0b1430 0%, #081228 44%, #050912 100%);
+    radial-gradient(circle at 16% 28%, rgba(22, 207, 251, 0.2), transparent 18%),
+    radial-gradient(circle at 82% 14%, rgba(255, 0, 85, 0.14), transparent 20%),
+    radial-gradient(circle at 50% 78%, rgba(119, 254, 252, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(5, 14, 48, 0.42) 0%, rgba(8, 18, 40, 0.22) 44%, rgba(5, 9, 18, 0.06) 100%);
 }
 
 .persona-bg__wash,
@@ -24,7 +24,7 @@
     linear-gradient(110deg, rgba(255, 255, 255, 0.08) 0 9%, transparent 9% 100%),
     radial-gradient(circle at 22% 18%, rgba(125, 230, 253, 0.2), transparent 15%),
     radial-gradient(circle at 72% 24%, rgba(22, 207, 251, 0.16), transparent 18%);
-  opacity: 0.72;
+  opacity: 0.34;
 }
 
 .persona-bg__halo {
@@ -80,8 +80,8 @@
   object-fit: cover;
   opacity: 0;
   transform: scale(1.08) translateY(1.5%);
-  filter: saturate(1.02) contrast(1.22) brightness(0.85) hue-rotate(-8deg);
-  transition: opacity 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 140ms ease;
+  filter: none;
+  transition: opacity 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   will-change: opacity, transform;
 }
 
@@ -91,11 +91,11 @@
 }
 
 .bg-video--intro {
-  filter: saturate(1.08) contrast(1.18) brightness(0.88) hue-rotate(-6deg);
+  filter: none;
 }
 
 .bg-video--loop {
-  filter: saturate(1.12) contrast(1.26) brightness(0.82) hue-rotate(-10deg);
+  filter: none;
 }
 
 .bg-video.is-warm {
@@ -106,24 +106,8 @@
 .persona-bg__overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(4, 8, 18, 0.12) 0%, rgba(4, 8, 18, 0.44) 48%, rgba(4, 8, 18, 0.7) 100%),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.04) 0,
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px,
-      transparent 8px
-    ),
-    repeating-linear-gradient(
-      140deg,
-      rgba(255, 255, 255, 0.04) 0,
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px,
-      transparent 18px
-    );
-  mix-blend-mode: screen;
-  opacity: 0.8;
+  background: none;
+  opacity: 0;
 }
 
 .persona-bg__frame {
