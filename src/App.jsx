@@ -80,28 +80,27 @@ export default function App() {
         <nav className="nav" aria-label="Primary navigation">
           <span className="nav-brand nav-brand--top">
             <span className="nav-brand-mark" aria-hidden="true">P3R</span>
-            <span className="nav-brand-text">Body Text And Menu</span>
           </span>
 
           <ul className="nav-links nav-menu-list">
             <li className="menu-item menu-item--heading">
-              <a href="#about" className="menu-link" data-text="Heading">
+              <a href="#about" className="menu-link">
                 <span className="menu-link-inner" data-text="Heading">About</span>
               </a>
             </li>
             <li className="menu-item menu-item--command">
-              <a href="#projects" className="menu-link" data-text="Command">
+              <a href="#projects" className="menu-link">
                 <span className="menu-link-inner" data-text="Command">Projects</span>
               </a>
             </li>
             <li className="menu-item menu-item--logo">
-              <a href="#education" className="menu-link" data-text="Logo">
+              <a href="#education" className="menu-link">
                 <span className="menu-link-inner" data-text="Logo">Education</span>
               </a>
             </li>
           </ul>
 
-          <span className="nav-brand nav-brand--bottom">New Rodin Pro / Command</span>
+        
         </nav>
 
         <main>
@@ -136,7 +135,7 @@ export default function App() {
         <footer className="footer">
           <p>
             <span className="footer-bracket">[</span>
-            &nbsp;Made with React + Vite &nbsp;|&nbsp; sufree11
+            &nbsp;Made with Love and Care (React + Vite) &nbsp;|&nbsp; sufree11 &nbsp;|&nbsp; 2026
             &nbsp;<span className="footer-bracket">]</span>
           </p>
         </footer>
