@@ -3,15 +3,14 @@ import './IntroCard.css'
 
 export default function IntroCard() {
   return (
-    <Card className="intro-card" tag="[ INIT ]">
-      <p className="intro-greeting">Hello, World.</p>
-      <h1 className="intro-name">Your Name</h1>
+    <Card className="intro-card" tag="PROFILE">
+      <p className="intro-greeting">PLAYER FILE / XI-11</p>
+      <h1 className="intro-name">Sufree Shahni</h1>
       <p className="intro-title"><span aria-hidden="true">{'// '}</span>Full-Stack Developer &amp; Engineer</p>
       <p className="intro-bio">
-        {/* ── Edit this paragraph with your own introduction ── */}
-        A passionate developer who crafts high-performance systems at the intersection
-        of code and creativity. Based in <span className="highlight">[Location]</span>,
-        open to <span className="highlight">[Opportunities]</span>.
+        A developer who builds polished interfaces and dependable systems with a strong
+        focus on motion, clarity, and performance. Based in <span className="highlight">[Location]</span>,
+        available for <span className="highlight">[Opportunities]</span>.
       </p>
       <div className="intro-links">
         <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>

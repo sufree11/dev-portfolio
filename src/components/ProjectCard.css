@@ -14,27 +14,28 @@
 }
 
 .project-title {
-  font-family: var(--font-display);
-  font-size: 1.22rem;
-  color: var(--color-ink);
-  letter-spacing: 0.05em;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .project-status {
   font-size: 0.68rem;
-  color: #f5dfbe;
-  letter-spacing: 0.1em;
+  color: var(--color-accent-blue);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  border: 1px solid rgba(94, 42, 24, 0.65);
-  background: rgba(99, 45, 27, 0.9);
+  border: 1px solid rgba(36, 164, 255, 0.35);
+  background: rgba(10, 12, 16, 0.98);
   padding: 1px 7px;
-  border-radius: 2px;
+  border-radius: 999px;
   white-space: nowrap;
 }
 
 .project-desc {
-  font-size: 0.92rem;
-  color: #3c2f24;
+  font-size: 0.95rem;
+  color: var(--color-text-soft);
   line-height: 1.7;
 }
 
@@ -48,19 +49,19 @@
 
 .tech-pill {
   font-size: 0.72rem;
-  background: rgba(88, 98, 66, 0.2);
-  border: 1px dashed rgba(88, 98, 66, 0.72);
-  color: #4f5b38;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-soft);
   padding: 2px 9px;
-  border-radius: 4px;
-  letter-spacing: 0.08em;
+  border-radius: 999px;
+  letter-spacing: 0.1em;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .cyber-card:hover .tech-pill {
-  background: rgba(88, 98, 66, 0.35);
-  border-color: rgba(88, 98, 66, 0.95);
-  color: #38412a;
+  background: rgba(36, 164, 255, 0.08);
+  border-color: rgba(36, 164, 255, 0.38);
+  color: var(--color-text);
 }
 
 .project-links {
@@ -71,13 +72,14 @@
 
 .project-link {
   font-size: 0.8rem;
-  color: var(--color-burn);
-  font-family: var(--font-marker);
-  letter-spacing: 0.08em;
+  color: var(--color-accent-red);
+  font-family: var(--font-command);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   transition: color 0.2s;
 }
 
 .project-link:hover {
-  color: #892710;
+  color: var(--color-accent-blue);
   opacity: 1;
 }

@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+import anime from 'animejs/lib/anime.es.js'
 import Background    from './components/Background.jsx'
 import IntroCard     from './components/IntroCard.jsx'
 import ProjectCard   from './components/ProjectCard.jsx'
@@ -7,16 +9,79 @@ import education     from './data/education.js'
 import './App.css'
 
 export default function App() {
+  const hasAnimatedRef = useRef(false)
+
+  useEffect(() => {
+    if (hasAnimatedRef.current) return
+    hasAnimatedRef.current = true
+
+    const timeline = anime.timeline({
+      easing: 'easeOutExpo',
+      duration: 720,
+    })
+
+    timeline
+      .add({
+        targets: '.nav-brand, .nav-links li',
+        opacity: [0, 1],
+        translateY: [18, 0],
+        delay: anime.stagger(85),
+      })
+      .add({
+        targets: '.intro-card',
+        opacity: [0, 1],
+        translateY: [36, 0],
+        scale: [0.98, 1],
+        rotate: [-1.4, -0.7],
+      }, '-=260')
+      .add({
+        targets: '.intro-card > *',
+        opacity: [0, 1],
+        translateX: [-18, 0],
+        delay: anime.stagger(90),
+      }, '-=420')
+
+    anime({
+      targets: '.section-heading',
+      opacity: [0, 1],
+      translateX: [-28, 0],
+      duration: 680,
+      easing: 'easeOutExpo',
+      delay: 420,
+    })
+
+    anime({
+      targets: '.card-grid .cyber-card',
+      opacity: [0, 1],
+      translateY: [32, 0],
+      rotate: [-1.3, 0],
+      scale: [0.97, 1],
+      delay: anime.stagger(85, { start: 540 }),
+      duration: 700,
+      easing: 'easeOutExpo',
+    })
+
+    anime({
+      targets: '.footer',
+      opacity: [0, 1],
+      translateY: [20, 0],
+      duration: 600,
+      easing: 'easeOutExpo',
+      delay: 900,
+    })
+  }, [])
+
   return (
     <>
-      {/* Interactive canvas background */}
       <Background />
 
-      <div className="layout">
+      <div className="layout persona-layout">
 
-        {/* ── Navigation ── */}
         <nav className="nav" aria-label="Primary navigation">
-          <span className="nav-brand"><span aria-hidden="true">{'// '}</span>portfolio</span>
+          <span className="nav-brand">
+            <span className="nav-brand-mark" aria-hidden="true">P3R</span>
+            <span className="nav-brand-text">SUFREE / PORTFOLIO</span>
+          </span>
           <ul className="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -25,13 +90,10 @@ export default function App() {
         </nav>
 
         <main>
-
-          {/* ── Hero / Intro ── */}
           <section id="about" className="section section--hero" aria-label="Introduction">
             <IntroCard />
           </section>
 
-          {/* ── Projects ── */}
           <section id="projects" className="section" aria-label="Projects">
             <h2 className="section-heading">
               <span className="heading-prefix">01.</span> Projects
@@ -43,7 +105,6 @@ export default function App() {
             </div>
           </section>
 
-          {/* ── Education ── */}
           <section id="education" className="section" aria-label="Education">
             <h2 className="section-heading">
               <span className="heading-prefix">02.</span> Education
@@ -57,11 +118,10 @@ export default function App() {
 
         </main>
 
-        {/* ── Footer ── */}
         <footer className="footer">
           <p>
             <span className="footer-bracket">[</span>
-            &nbsp;Built with React + Vite &nbsp;|&nbsp; sufree11
+            &nbsp;Made with React + Vite &nbsp;|&nbsp; sufree11
             &nbsp;<span className="footer-bracket">]</span>
           </p>
         </footer>

@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600&family=Special+Elite&display=swap');
-
-/* =====================================================
-  GLOBAL STYLES — Scrapbook / Grunge Rock
-  ===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=Press+Start+2P&family=Saira+Condensed:wght@400;500;600;700&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -11,24 +7,22 @@
 }
 
 :root {
-  --color-bg:          #1d1713;
-  --color-paper:       #d9c8a6;
-  --color-paper-deep:  #beaa86;
-  --color-ink:         #2b211a;
-  --color-burn:        #6f2f1c;
-  --color-rust:        #b54e2d;
-  --color-olive:       #66724f;
-  --color-muted:       #6f6659;
+  --color-bg: #09090c;
+  --color-surface: rgba(12, 13, 18, 0.92);
+  --color-surface-strong: rgba(18, 20, 28, 0.98);
+  --color-text: #f7f8fb;
+  --color-text-soft: #d6dae8;
+  --color-text-dim: #9ca3b4;
+  --color-accent-red: #e81e2d;
+  --color-accent-blue: #24a4ff;
+  --color-border: rgba(255, 255, 255, 0.1);
 
-  --color-card-bg:     rgba(233, 218, 186, 0.88);
-  --color-card-border: rgba(64, 40, 26, 0.52);
+  --font-body: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-heading: 'Bebas Neue', 'Arial Black', sans-serif;
+  --font-command: 'Saira Condensed', 'Arial Narrow', sans-serif;
+  --font-logo: 'Press Start 2P', monospace;
 
-  --font-display: 'Bebas Neue', 'Impact', sans-serif;
-  --font-body: 'IBM Plex Sans Condensed', 'Trebuchet MS', sans-serif;
-  --font-marker: 'Special Elite', 'Courier New', monospace;
-
-  --ink-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
-  --paper-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --panel-shadow: 0 18px 36px rgba(0, 0, 0, 0.46);
 }
 
 html {
@@ -36,14 +30,11 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at 12% 8%, rgba(199, 112, 63, 0.15), transparent 40%),
-    radial-gradient(circle at 88% 18%, rgba(101, 120, 73, 0.18), transparent 38%),
-    linear-gradient(165deg, #231913 0%, #1a1512 52%, #201710 100%);
-  color: var(--color-ink);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.55;
   overflow-x: hidden;
 }
 
@@ -52,16 +43,24 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    repeating-linear-gradient(
-      100deg,
-      rgba(255, 255, 255, 0.03) 0,
-      rgba(255, 255, 255, 0.03) 2px,
-      transparent 2px,
-      transparent 7px
-    );
-  opacity: 0.35;
+    linear-gradient(120deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 11px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 14px);
+  background-size: 100% 100%, 100% 100%;
+  opacity: 0.28;
   pointer-events: none;
-  z-index: -2;
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 14%, rgba(232, 30, 45, 0.12), transparent 20%),
+    radial-gradient(circle at 85% 24%, rgba(36, 164, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.14) 100%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 #root {
@@ -70,20 +69,20 @@ body::before {
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #19120f; }
+::-webkit-scrollbar-track { background: #09090c; }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-rust);
+  background: linear-gradient(180deg, var(--color-accent-red), var(--color-accent-blue));
   border-radius: 3px;
 }
 
 a {
-  color: var(--color-burn);
+  color: var(--color-accent-blue);
   text-decoration: none;
   transition: color 0.2s;
 }
-a:hover { color: #7f2510; }
+a:hover { color: var(--color-accent-red); }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-display);
-  letter-spacing: 0.06em;
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
 }

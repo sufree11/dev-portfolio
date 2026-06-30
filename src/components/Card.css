@@ -1,18 +1,14 @@
-/* =====================================================
-  Scrapbook Card
-  ===================================================== */
-
 .cyber-card {
   position: relative;
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-card-border);
-  border-radius: 8px 5px 10px 7px;
-  padding: 1.5rem 1.75rem;
+  background: linear-gradient(180deg, rgba(18, 20, 28, 0.96), rgba(8, 10, 15, 0.96));
+  border: 1px solid var(--color-border);
+  border-radius: 18px 6px 18px 6px;
+  padding: 1.5rem 1.65rem;
   overflow: hidden;
   transition: border-color 0.25s ease,
               box-shadow 0.25s ease,
               transform 0.25s ease;
-  box-shadow: var(--paper-shadow);
+  box-shadow: var(--panel-shadow);
   cursor: default;
   isolation: isolate;
 }
@@ -27,34 +23,33 @@
 .cyber-card::before {
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.45), transparent 32%),
-    radial-gradient(circle at 82% 84%, rgba(77, 49, 33, 0.16), transparent 38%),
+    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.08), transparent 26%),
+    radial-gradient(circle at 82% 82%, rgba(36, 164, 255, 0.12), transparent 34%),
     repeating-linear-gradient(
       22deg,
-      rgba(46, 31, 22, 0.045) 0,
-      rgba(46, 31, 22, 0.045) 2px,
+      rgba(255, 255, 255, 0.03) 0,
+      rgba(255, 255, 255, 0.03) 1px,
       transparent 2px,
-      transparent 8px
+      transparent 9px
     );
-  opacity: 0.95;
+  opacity: 0.9;
   z-index: -1;
 }
 
 .cyber-card::after {
-  width: 56px;
-  height: 20px;
-  top: 8px;
-  right: 18px;
-  background: linear-gradient(180deg, rgba(238, 225, 190, 0.68), rgba(217, 202, 163, 0.58));
-  border: 1px solid rgba(135, 119, 85, 0.5);
-  transform: rotate(7deg);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14);
+  width: 64px;
+  height: 6px;
+  top: 14px;
+  right: 16px;
+  background: linear-gradient(90deg, rgba(232, 30, 45, 0.95), rgba(36, 164, 255, 0.82));
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(232, 30, 45, 0.35);
 }
 
 .cyber-card:hover {
-  border-color: rgba(95, 41, 23, 0.72);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.34);
-  transform: translateY(-4px) rotate(-0.35deg);
+  border-color: rgba(36, 164, 255, 0.55);
+  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.48);
+  transform: translateY(-5px) rotate(-0.2deg);
 }
 
 .card-scanline {
@@ -66,7 +61,7 @@
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(255, 245, 225, 0.28) 50%,
+    rgba(255, 255, 255, 0.16) 50%,
     transparent 100%
   );
   mix-blend-mode: soft-light;
@@ -87,13 +82,14 @@
   position: absolute;
   top: 0.75rem;
   right: 0.8rem;
-  background: rgba(108, 48, 31, 0.94);
-  color: #f5e0ba;
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  background: rgba(12, 14, 20, 0.95);
+  color: var(--color-accent-red);
+  font-family: var(--font-command);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   padding: 0.12rem 0.6rem;
-  border-radius: 2px;
+  border-radius: 999px;
   text-transform: uppercase;
+  border: 1px solid rgba(232, 30, 45, 0.38);
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.22);
 }
