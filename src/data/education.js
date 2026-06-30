@@ -15,10 +15,10 @@
 const education = [
   {
     id:          'edu-1',
-    institution: 'University Name',
+    institution: 'Universiti Teknologi MARA',
     degree:      'Bachelor of Science',
     field:       'Computer Science',
-    period:      '20XX – 20XX',
+    period:      '2024-2027',
     gpa:         '',
     achievements: [
       'Award or achievement one',
