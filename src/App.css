@@ -1,11 +1,11 @@
 /* =====================================================
-   App Layout — Cyberpunk Portfolio
-   ===================================================== */
+  App Layout — Scrapbook Grunge
+  ===================================================== */
 
 /* All content sits above the canvas (z-index: 0) */
 .layout {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,48 +14,53 @@
 /* ── Navigation ─────────────────────────────────── */
 .nav {
   position: sticky;
-  top: 0;
+  top: 0.6rem;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9rem 2.5rem;
-  background: rgba(24, 28, 61, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(35, 94, 117, 0.35);
+  width: min(1080px, calc(100% - 2.4rem));
+  margin: 0.7rem auto 0;
+  padding: 0.8rem 1.35rem;
+  background: linear-gradient(178deg, rgba(236, 221, 189, 0.94), rgba(223, 206, 175, 0.92));
+  border: 1px solid rgba(63, 39, 26, 0.52);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  transform: rotate(-0.45deg);
 }
 
 .nav-brand {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  color: var(--color-accent);
-  letter-spacing: 0.12em;
+  font-family: var(--font-marker);
+  font-size: 1.1rem;
+  color: var(--color-ink);
+  letter-spacing: 0.08em;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 2rem;
+  gap: 1.3rem;
 }
 
 .nav-links a {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--color-text);
-  letter-spacing: 0.1em;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .nav-links a:hover {
-  color: var(--color-accent);
-  opacity: 1;
+  color: var(--color-burn);
+  border-color: var(--color-rust);
 }
 
 /* ── Sections ────────────────────────────────────── */
 .section {
-  padding: 5rem 2.5rem;
-  max-width: 1100px;
+  position: relative;
+  padding: 4.7rem 2.4rem;
+  max-width: 1080px;
   width: 100%;
   margin: 0 auto;
 }
@@ -64,76 +69,102 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  min-height: 85vh;
-  padding-top: 6rem;
+  min-height: 80vh;
+  padding-top: 4.2rem;
 }
 
 /* ── Section headings ────────────────────────────── */
 .section-heading {
-  font-family: var(--font-display);
+  font-family: var(--font-marker);
   font-size: clamp(1.4rem, 3vw, 2rem);
-  color: #ffffff;
-  letter-spacing: 0.1em;
-  margin-bottom: 2.5rem;
+  color: #e9d7b3;
+  letter-spacing: 0.06em;
+  margin-bottom: 2.1rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
 }
 
 .section-heading::after {
   content: '';
   flex: 1;
-  height: 1px;
+  height: 3px;
   background: linear-gradient(
     to right,
-    rgba(35, 94, 117, 0.6),
+    rgba(181, 78, 45, 0.66),
     transparent
   );
   margin-left: 0.5rem;
 }
 
 .heading-prefix {
-  color: var(--color-accent);
+  color: #f2be7e;
   font-size: 0.85em;
 }
 
 /* ── Card grid ───────────────────────────────────── */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.35rem;
 }
 
 .card-grid--edu {
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
 }
 
 /* ── Footer ──────────────────────────────────────── */
 .footer {
   margin-top: auto;
   text-align: center;
-  padding: 1.5rem;
-  font-size: 0.78rem;
-  color: var(--color-muted);
-  border-top: 1px solid rgba(35, 94, 117, 0.2);
+  padding: 1.9rem 1.2rem 2.1rem;
+  font-size: 0.82rem;
+  color: #ccb894;
+  border-top: 1px dashed rgba(240, 220, 181, 0.3);
   letter-spacing: 0.08em;
+  font-family: var(--font-marker);
 }
 
 .footer-bracket {
-  color: var(--color-secondary);
+  color: #f0ad6c;
+}
+
+.section,
+.nav,
+.footer {
+  animation: settle-in 0.7s ease both;
+}
+
+@keyframes settle-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 640px) {
   .nav {
-    padding: 0.75rem 1.25rem;
+    width: calc(100% - 1.2rem);
+    padding: 0.72rem 0.95rem;
+    top: 0.3rem;
+    transform: rotate(-0.25deg);
   }
 
   .section {
-    padding: 3.5rem 1.25rem;
+    padding: 3.4rem 1.1rem;
   }
 
   .nav-links {
-    gap: 1.2rem;
+    gap: 0.7rem;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
   }
 }

@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans+Condensed:wght@300;400;500;600&family=Special+Elite&display=swap');
+
 /* =====================================================
-   GLOBAL STYLES — Cyberpunk Portfolio
-   Primary  : #181c3d  (dark navy)
-   Secondary: #235e75  (steel-grey blue)
-   Accent   : #00ffe7  (cyan glow)
-   ===================================================== */
+  GLOBAL STYLES — Scrapbook / Grunge Rock
+  ===================================================== */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -12,21 +11,24 @@
 }
 
 :root {
-  --color-bg:        #181c3d;
-  --color-secondary: #235e75;
-  --color-accent:    #00ffe7;
-  --color-text:      #c9d6df;
-  --color-muted:     #6a7f8c;
-  --color-card-bg:   rgba(24, 28, 61, 0.82);
-  --color-card-border: rgba(35, 94, 117, 0.7);
+  --color-bg:          #1d1713;
+  --color-paper:       #d9c8a6;
+  --color-paper-deep:  #beaa86;
+  --color-ink:         #2b211a;
+  --color-burn:        #6f2f1c;
+  --color-rust:        #b54e2d;
+  --color-olive:       #66724f;
+  --color-muted:       #6f6659;
 
-  --font-display: 'Moms Typewriter', 'Share Tech Mono', 'Courier New', monospace;
-  --font-body:    'Inconsolata', 'Courier New', monospace;
+  --color-card-bg:     rgba(233, 218, 186, 0.88);
+  --color-card-border: rgba(64, 40, 26, 0.52);
 
-  --glow-accent: 0 0 8px rgba(0, 255, 231, 0.55),
-                 0 0 24px rgba(0, 255, 231, 0.25);
-  --glow-secondary: 0 0 8px rgba(35, 94, 117, 0.8),
-                    0 0 24px rgba(35, 94, 117, 0.4);
+  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --font-body: 'IBM Plex Sans Condensed', 'Trebuchet MS', sans-serif;
+  --font-marker: 'Special Elite', 'Courier New', monospace;
+
+  --ink-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+  --paper-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 html {
@@ -34,30 +36,54 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(199, 112, 63, 0.15), transparent 40%),
+    radial-gradient(circle at 88% 18%, rgba(101, 120, 73, 0.18), transparent 38%),
+    linear-gradient(165deg, #231913 0%, #1a1512 52%, #201710 100%);
+  color: var(--color-ink);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.65;
   overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.03) 0,
+      rgba(255, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 7px
+    );
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: -2;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-track { background: #19120f; }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-secondary);
+  background: var(--color-rust);
   border-radius: 3px;
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-burn);
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: color 0.2s;
 }
-a:hover { opacity: 0.75; }
+a:hover { color: #7f2510; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
