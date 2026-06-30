@@ -1,17 +1,15 @@
 .intro-card {
   max-width: 760px;
-  padding: 2.15rem 2.3rem 2rem;
-  transform: skewX(-1.2deg);
-  border-color: rgba(36, 164, 255, 0.22);
+  transform: none;
 }
 
 .intro-greeting {
   font-family: var(--font-body);
   font-size: 0.82rem;
-  color: var(--color-text-dim);
+  color: #00eeff;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   transform: scaleY(1.14) scaleX(0.95);
   transform-origin: left center;
 }
@@ -19,21 +17,22 @@
 .intro-name {
   font-family: var(--font-command);
   font-size: clamp(2.4rem, 6vw, 5rem);
-  color: var(--color-text);
+  color: #ffffff;
   line-height: 1;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.22rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   transform: scaleY(1.2) scaleX(0.9);
   transform-origin: left center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .intro-title {
   font-family: var(--font-heading);
   font-size: 1.08rem;
-  color: var(--color-accent-red);
+  color: #00eeff;
   letter-spacing: 0.05em;
-  margin-bottom: 1.05rem;
+  margin-bottom: 1.15rem;
   text-transform: uppercase;
   transform: scaleY(1.16) scaleX(0.94);
   transform-origin: left center;
@@ -41,14 +40,15 @@
 
 .intro-bio {
   font-size: 1rem;
-  color: var(--color-text-soft);
+  color: #ffffff;
   margin-bottom: 1.4rem;
-  line-height: 1.7;
+  line-height: 1.5;
   font-family: var(--font-body);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .highlight {
-  color: var(--color-accent-blue);
+  color: #00eeff;
   font-weight: 600;
 }
 
@@ -66,10 +66,12 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transform: scaleY(1.12) scaleX(0.95);
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .divider {
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .intro-status {
@@ -78,19 +80,20 @@
   gap: 0.5rem;
   font-size: 0.78rem;
   font-family: var(--font-body);
-  color: var(--color-text-dim);
+  color: #ffffff;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   transform: scaleY(1.1) scaleX(0.95);
   transform-origin: left center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--color-accent-red);
-  box-shadow: 0 0 0 2px rgba(232, 30, 45, 0.2), 0 0 12px rgba(232, 30, 45, 0.55);
+  background: #00eeff;
+  box-shadow: 0 0 0 2px rgba(0, 238, 255, 0.2), 0 0 12px rgba(0, 238, 255, 0.55);
   animation: pulse 2s ease-in-out infinite;
 }
 

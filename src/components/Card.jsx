@@ -8,9 +8,17 @@ import './Card.css'
 export default function Card({ children, className = '', tag = '' }) {
   return (
     <div className={`cyber-card ${className}`}>
-      {tag && <span className="card-tag">{tag}</span>}
-      {children}
-      <span className="card-scanline" aria-hidden="true" />
+      <span className="card-accent" aria-hidden="true" />
+      <div className="card-main">
+        {tag && (
+          <span className="card-badge">
+            <span className="card-badge-name">{tag}</span>
+            <span className="card-badge-sub">TALK</span>
+          </span>
+        )}
+        <div className="card-content">{children}</div>
+        <span className="card-scanline" aria-hidden="true" />
+      </div>
     </div>
   )
 }

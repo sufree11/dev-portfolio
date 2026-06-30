@@ -1,7 +1,7 @@
 .edu-card {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.72rem;
   min-height: 230px;
 }
 
@@ -16,16 +16,17 @@
 .edu-institution {
   font-family: var(--font-heading);
   font-size: 1.28rem;
-  color: var(--color-text);
+  color: #ffffff;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   transform: scaleY(1.16) scaleX(0.94);
   transform-origin: left center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .edu-period {
   font-size: 0.74rem;
-  color: var(--color-text-dim);
+  color: #00eeff;
   font-family: var(--font-body);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -34,23 +35,26 @@
 
 .edu-degree {
   font-size: 0.98rem;
-  color: var(--color-text-soft);
+  color: #ffffff;
   font-family: var(--font-body);
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .edu-field {
-  color: var(--color-accent-blue);
+  color: #00eeff;
 }
 
 .edu-gpa {
   font-size: 0.8rem;
-  color: var(--color-text-dim);
+  color: #ffffff;
   font-family: var(--font-body);
   transform: scaleY(1.1) scaleX(0.95);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .highlight-val {
-  color: var(--color-accent-red);
+  color: #00eeff;
 }
 
 .edu-achievements {
@@ -64,21 +68,23 @@
 
 .edu-achievements li {
   font-size: 0.87rem;
-  color: var(--color-text-soft);
+  color: #ffffff;
   padding-left: 1.2rem;
   position: relative;
   font-family: var(--font-body);
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .edu-achievements li::before {
   content: '◆';
   position: absolute;
   left: 0;
-  color: var(--color-accent-blue);
+  color: #00eeff;
   font-size: 0.6rem;
   top: 0.28em;
 }
 
 .cyber-card:hover .edu-achievements li::before {
-  color: var(--color-accent-red);
+  color: #ffffff;
 }
