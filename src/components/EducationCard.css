@@ -17,21 +17,25 @@
   font-family: var(--font-heading);
   font-size: 1.28rem;
   color: var(--color-text);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
+  transform: scaleY(1.16) scaleX(0.94);
+  transform-origin: left center;
 }
 
 .edu-period {
   font-size: 0.74rem;
   color: var(--color-text-dim);
-  font-family: var(--font-command);
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  transform: scaleY(1.12) scaleX(0.95);
 }
 
 .edu-degree {
   font-size: 0.98rem;
   color: var(--color-text-soft);
+  font-family: var(--font-body);
 }
 
 .edu-field {
@@ -41,6 +45,8 @@
 .edu-gpa {
   font-size: 0.8rem;
   color: var(--color-text-dim);
+  font-family: var(--font-body);
+  transform: scaleY(1.1) scaleX(0.95);
 }
 
 .highlight-val {
@@ -61,6 +67,7 @@
   color: var(--color-text-soft);
   padding-left: 1.2rem;
   position: relative;
+  font-family: var(--font-body);
 }
 
 .edu-achievements li::before {

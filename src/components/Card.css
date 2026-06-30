@@ -1,14 +1,17 @@
 .cyber-card {
   position: relative;
-  background: linear-gradient(180deg, rgba(18, 20, 28, 0.96), rgba(8, 10, 15, 0.96));
-  border: 1px solid var(--color-border);
-  border-radius: 18px 6px 18px 6px;
-  padding: 1.5rem 1.65rem;
+  background: linear-gradient(165deg, rgba(8, 17, 34, 0.94), rgba(4, 8, 18, 0.97));
+  border: 1px solid rgba(125, 230, 253, 0.28);
+  border-radius: 0;
+  clip-path: polygon(2.3% 0, 100% 0, 100% 84%, 96% 100%, 0 100%, 0 15%);
+  padding: 1.55rem 1.7rem 1.65rem;
   overflow: hidden;
-  transition: border-color 0.25s ease,
-              box-shadow 0.25s ease,
-              transform 0.25s ease;
-  box-shadow: var(--panel-shadow);
+  transition: border-color 0.12s ease,
+              box-shadow 0.12s ease,
+              transform 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.44),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   cursor: default;
   isolation: isolate;
 }
@@ -23,73 +26,73 @@
 .cyber-card::before {
   inset: 0;
   background-image:
-    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.08), transparent 26%),
-    radial-gradient(circle at 82% 82%, rgba(36, 164, 255, 0.12), transparent 34%),
+    linear-gradient(122deg, rgba(255, 255, 255, 0.1) 0 13%, transparent 13% 100%),
+    radial-gradient(circle at 78% 78%, rgba(22, 207, 251, 0.17), transparent 28%),
     repeating-linear-gradient(
       22deg,
       rgba(255, 255, 255, 0.03) 0,
       rgba(255, 255, 255, 0.03) 1px,
       transparent 2px,
-      transparent 9px
+      transparent 11px
     );
-  opacity: 0.9;
+  opacity: 0.95;
   z-index: -1;
 }
 
 .cyber-card::after {
-  width: 64px;
-  height: 6px;
-  top: 14px;
-  right: 16px;
-  background: linear-gradient(90deg, rgba(232, 30, 45, 0.95), rgba(36, 164, 255, 0.82));
-  border-radius: 999px;
-  box-shadow: 0 0 18px rgba(232, 30, 45, 0.35);
+  width: 118px;
+  height: 24px;
+  right: -32px;
+  bottom: -6px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(255, 0, 85, 0.92));
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%);
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.28);
 }
 
 .cyber-card:hover {
-  border-color: rgba(36, 164, 255, 0.55);
-  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.48);
-  transform: translateY(-5px) rotate(-0.2deg);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 24px 42px rgba(0, 0, 0, 0.52),
+    0 0 0 1px rgba(255, 255, 255, 0.28),
+    0 0 32px rgba(22, 207, 251, 0.2);
+  transform: translate3d(0, -6px, 0) scale(1.012);
 }
 
 .card-scanline {
   position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 40%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(255, 255, 255, 0.16) 50%,
-    transparent 100%
-  );
-  mix-blend-mode: soft-light;
+  top: 0;
+  left: -130%;
+  width: 64%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent 0, rgba(255, 255, 255, 0.16) 47%, transparent 100%);
+  mix-blend-mode: screen;
   pointer-events: none;
   transition: none;
 }
 
 .cyber-card:hover .card-scanline {
-  animation: scanline-sweep 0.7s ease forwards;
+  animation: scanline-sweep 0.5s ease forwards;
 }
 
 @keyframes scanline-sweep {
-  from { top: -40%; }
-  to   { top: 110%; }
+  from { left: -130%; }
+  to   { left: 145%; }
 }
 
 .card-tag {
   position: absolute;
-  top: 0.75rem;
-  right: 0.8rem;
-  background: rgba(12, 14, 20, 0.95);
-  color: var(--color-accent-red);
-  font-family: var(--font-command);
+  top: 0.62rem;
+  right: 0.72rem;
+  background: rgba(22, 207, 251, 0.16);
+  color: var(--color-cyan-2);
+  font-family: var(--font-body);
   font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  padding: 0.12rem 0.6rem;
-  border-radius: 999px;
+  letter-spacing: 0.08em;
+  transform: scaleY(1.16) scaleX(0.92);
+  transform-origin: right center;
+  padding: 0.14rem 0.74rem;
+  clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%);
   text-transform: uppercase;
-  border: 1px solid rgba(232, 30, 45, 0.38);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(125, 230, 253, 0.44);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.26);
 }

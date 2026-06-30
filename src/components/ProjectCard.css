@@ -17,26 +17,31 @@
   font-family: var(--font-heading);
   font-size: 1.35rem;
   color: var(--color-text);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
+  transform: scaleY(1.16) scaleX(0.94);
+  transform-origin: left center;
 }
 
 .project-status {
   font-size: 0.68rem;
   color: var(--color-accent-blue);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 1px solid rgba(36, 164, 255, 0.35);
   background: rgba(10, 12, 16, 0.98);
   padding: 1px 7px;
-  border-radius: 999px;
+  clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
   white-space: nowrap;
+  font-family: var(--font-body);
+  transform: scaleY(1.15) scaleX(0.93);
 }
 
 .project-desc {
   font-size: 0.95rem;
   color: var(--color-text-soft);
   line-height: 1.7;
+  font-family: var(--font-body);
 }
 
 .tech-stack {
@@ -53,8 +58,10 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--color-text-soft);
   padding: 2px 9px;
-  border-radius: 999px;
-  letter-spacing: 0.1em;
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  transform: scaleY(1.12) scaleX(0.94);
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
@@ -74,8 +81,9 @@
   font-size: 0.8rem;
   color: var(--color-accent-red);
   font-family: var(--font-command);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  transform: scaleY(1.14) scaleX(0.94);
   transition: color 0.2s;
 }
 

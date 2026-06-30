@@ -6,7 +6,7 @@
 }
 
 .intro-greeting {
-  font-family: var(--font-command);
+  font-family: var(--font-body);
   font-size: 0.82rem;
   color: var(--color-text-dim);
   letter-spacing: 0.12em;
@@ -17,7 +17,7 @@
 }
 
 .intro-name {
-  font-family: var(--font-heading);
+  font-family: var(--font-command);
   font-size: clamp(2.4rem, 6vw, 5rem);
   color: var(--color-text);
   line-height: 1;
@@ -29,7 +29,7 @@
 }
 
 .intro-title {
-  font-family: var(--font-command);
+  font-family: var(--font-heading);
   font-size: 1.08rem;
   color: var(--color-accent-red);
   letter-spacing: 0.05em;
@@ -44,6 +44,7 @@
   color: var(--color-text-soft);
   margin-bottom: 1.4rem;
   line-height: 1.7;
+  font-family: var(--font-body);
 }
 
 .highlight {
@@ -61,9 +62,10 @@
 }
 
 .intro-links a {
-  font-family: var(--font-command);
+  font-family: var(--font-body);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  transform: scaleY(1.12) scaleX(0.95);
 }
 
 .divider {
@@ -75,10 +77,12 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.78rem;
-  font-family: var(--font-command);
+  font-family: var(--font-body);
   color: var(--color-text-dim);
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  transform: scaleY(1.1) scaleX(0.95);
+  transform-origin: left center;
 }
 
 .status-dot {
