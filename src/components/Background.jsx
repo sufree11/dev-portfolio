@@ -7,7 +7,8 @@ export default function Background() {
   const [phase, setPhase] = useState('intro')
   const introVideoRef = useRef(null)
   const loopVideoRef = useRef(null)
-  const startedRef = useRef(false)
+  const loopReadyRef = useRef(false)
+  const introEndedRef = useRef(false)
 
   useEffect(() => {
     const playVideo = async (video) => {
@@ -15,9 +16,9 @@ export default function Background() {
 
       try {
         await video.play()
-        startedRef.current = true
       } catch {
-        startedRef.current = false
+        // Autoplay can be blocked briefly on some browsers; the next
+        // user-visible state change will re-attempt playback.
       }
     }
 
@@ -26,26 +27,54 @@ export default function Background() {
     const intro = introVideoRef.current
     const loop = loopVideoRef.current
 
-    const handleIntroEnded = () => {
-      setPhase('loop')
-      if (loop) {
-        loop.currentTime = 0
-        playVideo(loop)
+    const startLoop = () => {
+      if (!loop) return
+
+      loop.currentTime = 0
+      playVideo(loop)
+
+      if (introEndedRef.current) {
+        setPhase('loop')
       }
     }
 
-    const handleLoopCanPlay = () => {
-      if (phase === 'loop' && !startedRef.current) {
-        playVideo(loop)
+    const handleIntroEnded = () => {
+      introEndedRef.current = true
+      setPhase('loop')
+
+      if (loopReadyRef.current) {
+        startLoop()
+        return
+      }
+
+      if (loop) {
+        loop.currentTime = 0
+        loop.load()
+      }
+    }
+
+    const handleLoopReady = () => {
+      loopReadyRef.current = true
+
+      if (introEndedRef.current) {
+        startLoop()
       }
     }
 
     intro?.addEventListener('ended', handleIntroEnded)
-    loop?.addEventListener('canplay', handleLoopCanPlay)
+    loop?.addEventListener('canplaythrough', handleLoopReady)
+    loop?.addEventListener('loadeddata', handleLoopReady)
+
+    if (loop) {
+      loop.currentTime = 0
+      loop.load()
+      loop.play().catch(() => {})
+    }
 
     return () => {
       intro?.removeEventListener('ended', handleIntroEnded)
-      loop?.removeEventListener('canplay', handleLoopCanPlay)
+      loop?.removeEventListener('canplaythrough', handleLoopReady)
+      loop?.removeEventListener('loadeddata', handleLoopReady)
     }
   }, [])
 
@@ -55,12 +84,19 @@ export default function Background() {
     const loop = loopVideoRef.current
     if (!loop) return
 
-    loop.currentTime = 0
-    loop.play().catch(() => {})
+    if (loopReadyRef.current) {
+      loop.currentTime = 0.04
+      loop.play().catch(() => {})
+    }
   }, [phase])
 
   return (
     <div className="persona-bg" aria-hidden="true">
+      <div className="persona-bg__wash" />
+      <div className="persona-bg__halo persona-bg__halo--left" />
+      <div className="persona-bg__halo persona-bg__halo--right" />
+      <div className="persona-bg__slash persona-bg__slash--pink" />
+      <div className="persona-bg__slash persona-bg__slash--blue" />
       <video
         ref={introVideoRef}
         className={`bg-video bg-video--intro ${phase === 'intro' ? 'is-active' : ''}`}
@@ -72,7 +108,7 @@ export default function Background() {
       />
       <video
         ref={loopVideoRef}
-        className={`bg-video bg-video--loop ${phase === 'loop' ? 'is-active' : ''}`}
+        className={`bg-video bg-video--loop ${phase === 'loop' ? 'is-active' : 'is-warm'}`}
         src={loopVideo}
         loop
         muted
@@ -82,7 +118,8 @@ export default function Background() {
       <div className="persona-bg__overlay" />
       <div className="persona-bg__frame persona-bg__frame--top" />
       <div className="persona-bg__frame persona-bg__frame--bottom" />
-      <div className="persona-bg__flash" />
+      <div className="persona-bg__beam persona-bg__beam--top" />
+      <div className="persona-bg__beam persona-bg__beam--bottom" />
     </div>
   )
 }

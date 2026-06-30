@@ -1,13 +1,75 @@
 .persona-bg {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 15%, rgba(188, 38, 43, 0.18), transparent 34%),
-    radial-gradient(circle at 84% 18%, rgba(32, 118, 214, 0.22), transparent 28%),
-    linear-gradient(180deg, #08080a 0%, #0c0c10 40%, #050506 100%);
+    radial-gradient(circle at 16% 28%, rgba(22, 207, 251, 0.24), transparent 18%),
+    radial-gradient(circle at 82% 14%, rgba(255, 0, 85, 0.18), transparent 20%),
+    radial-gradient(circle at 50% 78%, rgba(119, 254, 252, 0.14), transparent 28%),
+    linear-gradient(180deg, #0b1430 0%, #081228 44%, #050912 100%);
+}
+
+.persona-bg__wash,
+.persona-bg__halo,
+.persona-bg__slash,
+.persona-bg__beam {
+  position: absolute;
+}
+
+.persona-bg__wash {
+  inset: 0;
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.08) 0 9%, transparent 9% 100%),
+    radial-gradient(circle at 22% 18%, rgba(125, 230, 253, 0.2), transparent 15%),
+    radial-gradient(circle at 72% 24%, rgba(22, 207, 251, 0.16), transparent 18%);
+  opacity: 0.72;
+}
+
+.persona-bg__halo {
+  top: 8%;
+  width: min(42vw, 540px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(18px);
+  mix-blend-mode: screen;
+}
+
+.persona-bg__halo--left {
+  left: -7%;
+  background: radial-gradient(circle at 40% 40%, rgba(22, 207, 251, 0.4), transparent 66%);
+}
+
+.persona-bg__halo--right {
+  right: -10%;
+  background: radial-gradient(circle at 45% 35%, rgba(255, 0, 85, 0.28), transparent 68%);
+}
+
+.persona-bg__slash {
+  width: 42vw;
+  height: 14vh;
+  min-height: 88px;
+  max-height: 150px;
+  opacity: 0.92;
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  transform: skewX(-18deg);
+  mix-blend-mode: screen;
+}
+
+.persona-bg__slash--pink {
+  right: -8%;
+  top: 12%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 0, 85, 0.86));
+  box-shadow: 0 0 28px rgba(255, 0, 85, 0.32);
+}
+
+.persona-bg__slash--blue {
+  left: -10%;
+  bottom: 16%;
+  width: 48vw;
+  background: linear-gradient(90deg, rgba(22, 207, 251, 0.9), rgba(125, 230, 253, 0.72));
+  box-shadow: 0 0 24px rgba(22, 207, 251, 0.28);
 }
 
 .bg-video {
@@ -17,46 +79,61 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transform: scale(1.03);
-  filter: saturate(0.92) contrast(1.16) brightness(0.72);
-  transition: opacity 240ms ease;
+  transform: scale(1.08) translateY(1.5%);
+  filter: saturate(1.02) contrast(1.22) brightness(0.85) hue-rotate(-8deg);
+  transition: opacity 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 140ms ease;
+  will-change: opacity, transform;
 }
 
 .bg-video.is-active {
   opacity: 1;
+  transform: scale(1.04) translateY(0);
 }
 
 .bg-video--intro {
-  filter: saturate(0.95) contrast(1.1) brightness(0.68);
+  filter: saturate(1.08) contrast(1.18) brightness(0.88) hue-rotate(-6deg);
 }
 
 .bg-video--loop {
-  filter: saturate(0.85) contrast(1.2) brightness(0.56) hue-rotate(-6deg);
+  filter: saturate(1.12) contrast(1.26) brightness(0.82) hue-rotate(-10deg);
+}
+
+.bg-video.is-warm {
+  opacity: 0.001;
+  transform: scale(1.04) translateY(0);
 }
 
 .persona-bg__overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0.55) 52%, rgba(0, 0, 0, 0.78) 100%),
+    linear-gradient(180deg, rgba(4, 8, 18, 0.12) 0%, rgba(4, 8, 18, 0.44) 48%, rgba(4, 8, 18, 0.7) 100%),
     repeating-linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.05) 0,
-      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 1px,
       transparent 1px,
-      transparent 10px
+      transparent 8px
+    ),
+    repeating-linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 18px
     );
   mix-blend-mode: screen;
-  opacity: 0.42;
+  opacity: 0.8;
 }
 
 .persona-bg__frame {
   position: absolute;
   left: 0;
   right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(231, 38, 46, 0.95) 18%, rgba(231, 38, 46, 0.95) 72%, transparent 100%);
-  box-shadow: 0 0 24px rgba(231, 38, 46, 0.38);
+  height: 7px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.9) 18%, rgba(255, 0, 85, 0.92) 43%, rgba(22, 207, 251, 0.86) 76%, transparent 100%);
+  box-shadow: 0 0 22px rgba(22, 207, 251, 0.4);
+  transform: skewX(-16deg);
 }
 
 .persona-bg__frame--top {
@@ -65,17 +142,31 @@
 
 .persona-bg__frame--bottom {
   bottom: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(29, 129, 232, 0.85) 24%, rgba(29, 129, 232, 0.85) 68%, transparent 100%);
-  box-shadow: 0 0 24px rgba(29, 129, 232, 0.42);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.88) 12%, rgba(22, 207, 251, 0.94) 48%, rgba(125, 230, 253, 0.72) 70%, transparent 100%);
+  box-shadow: 0 0 24px rgba(125, 230, 253, 0.38);
 }
 
-.persona-bg__flash {
-  position: absolute;
-  inset: auto 6% 8% auto;
-  width: min(38vw, 460px);
-  aspect-ratio: 1 / 1;
-  background: radial-gradient(circle at 40% 35%, rgba(255, 255, 255, 0.16), transparent 64%);
+.persona-bg__beam {
+  width: 24vw;
+  height: 28vh;
+  min-width: 180px;
+  min-height: 140px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.22), transparent 55%);
+  clip-path: polygon(0 40%, 100% 0, 86% 100%, 8% 100%);
   mix-blend-mode: screen;
+  opacity: 0.65;
+}
+
+.persona-bg__beam--top {
+  left: 4%;
+  top: 10%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), rgba(22, 207, 251, 0.2));
+  transform: rotate(-10deg);
+}
+
+.persona-bg__beam--bottom {
+  right: 8%;
+  bottom: 8%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), rgba(255, 0, 85, 0.18));
   transform: rotate(8deg);
-  opacity: 0.55;
 }
