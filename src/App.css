@@ -1,0 +1,139 @@
+/* =====================================================
+   App Layout — Cyberpunk Portfolio
+   ===================================================== */
+
+/* All content sits above the canvas (z-index: 0) */
+.layout {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Navigation ─────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2.5rem;
+  background: rgba(24, 28, 61, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(35, 94, 117, 0.35);
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-accent);
+  letter-spacing: 0.12em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+  opacity: 1;
+}
+
+/* ── Sections ────────────────────────────────────── */
+.section {
+  padding: 5rem 2.5rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section--hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 85vh;
+  padding-top: 6rem;
+}
+
+/* ── Section headings ────────────────────────────── */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(35, 94, 117, 0.6),
+    transparent
+  );
+  margin-left: 0.5rem;
+}
+
+.heading-prefix {
+  color: var(--color-accent);
+  font-size: 0.85em;
+}
+
+/* ── Card grid ───────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card-grid--edu {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  border-top: 1px solid rgba(35, 94, 117, 0.2);
+  letter-spacing: 0.08em;
+}
+
+.footer-bracket {
+  color: var(--color-secondary);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .nav-links {
+    gap: 1.2rem;
+  }
+}

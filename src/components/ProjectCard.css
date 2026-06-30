@@ -1,0 +1,79 @@
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+}
+
+.project-status {
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-accent);
+  padding: 1px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin-top: 0.25rem;
+}
+
+.tech-pill {
+  font-size: 0.72rem;
+  background: rgba(35, 94, 117, 0.25);
+  border: 1px solid rgba(35, 94, 117, 0.6);
+  color: var(--color-accent);
+  padding: 2px 9px;
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.cyber-card:hover .tech-pill {
+  background: rgba(35, 94, 117, 0.45);
+  border-color: var(--color-accent);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.project-link {
+  font-size: 0.82rem;
+  color: var(--color-secondary);
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+
+.project-link:hover {
+  color: var(--color-accent);
+  opacity: 1;
+}
