@@ -22,7 +22,7 @@ export default function EducationCard({ institution, degree, field, period, gpa,
       <p className="edu-degree">
         {degree}{field && <span className="edu-field"> — {field}</span>}
       </p>
-      {gpa && <p className="edu-gpa">GPA: <span className="highlight-val">{gpa}</span></p>}
+      {gpa && <p className="edu-gpa">Results: <span className="highlight-val">{gpa}</span></p>}
       {achievements.length > 0 && (
         <ul className="edu-achievements">
           {achievements.map((a, i) => (

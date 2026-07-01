@@ -6,6 +6,16 @@
   flex-direction: column;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 0;
+}
+
 .persona-layout {
   isolation: isolate;
 }
@@ -309,13 +319,15 @@
   max-width: 1160px;
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .section--hero {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 79vh;
+  justify-content: flex-end;
   padding-top: 3.25rem;
 }
 
@@ -332,37 +344,6 @@
 .intro-spread-wrap {
   position: relative;
   z-index: 2;
-}
-
-.intro-spread-wrap > .cyber-card {
-  position: relative;
-  z-index: 1;
-}
-
-.intro-spread-wrap::before,
-.intro-spread-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, #b50e1c 5px, #0a0202 5px);
-  border: 2px solid rgba(232, 30, 45, 0.65);
-  clip-path: polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px);
-  z-index: -1;
-  transform-origin: 50% 88%;
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.26s ease;
-}
-
-.intro-spread-wrap:hover::before {
-  opacity: 0.85;
-  transform: rotate(-15deg) translate(-28px, 10px);
-}
-
-.intro-spread-wrap:hover::after {
-  opacity: 0.72;
-  transform: rotate(14deg) translate(26px, 12px);
-  transition-delay: 0.05s;
 }
 
 .section--solid-blue {
@@ -420,7 +401,12 @@
 }
 
 .card-grid--edu {
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(330px, 330px));
+  justify-content: center;
+}
+
+.card-grid--skills {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .footer {

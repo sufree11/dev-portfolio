@@ -2,14 +2,65 @@ import { useEffect, useRef } from 'react'
 import anime from 'animejs/lib/anime.es.js'
 import Background    from './components/Background.jsx'
 import IntroCard     from './components/IntroCard.jsx'
-import ProjectCard   from './components/ProjectCard.jsx'
+import ProjectDeck   from './components/ProjectDeck.jsx'
+import SkillsCard    from './components/SkillsCard.jsx'
 import EducationCard from './components/EducationCard.jsx'
 import projects      from './data/projects.js'
+import skills        from './data/skills.js'
 import education     from './data/education.js'
 import './App.css'
 
 export default function App() {
   const hasAnimatedRef = useRef(false)
+  const snapLockRef = useRef(false)
+
+  useEffect(() => {
+    const getSections = () => Array.from(document.querySelectorAll('main .section'))
+
+    const getCurrentSectionIdx = (sections) => {
+      const y = window.scrollY
+      let idx = 0
+
+      for (let i = 0; i < sections.length; i += 1) {
+        const currentTop = sections[i].offsetTop
+        const nextTop = sections[i + 1]?.offsetTop ?? Number.POSITIVE_INFINITY
+        if (y >= currentTop - 2 && y < nextTop - 2) {
+          idx = i
+          break
+        }
+      }
+
+      return idx
+    }
+
+    const onWheel = (e) => {
+      if (e.defaultPrevented) return
+      if (Math.abs(e.deltaY) < 18) return
+
+      const sections = getSections()
+      if (sections.length === 0) return
+
+      const direction = e.deltaY > 0 ? 1 : -1
+      const currentIdx = getCurrentSectionIdx(sections)
+      const targetIdx = Math.min(sections.length - 1, Math.max(0, currentIdx + direction))
+
+      e.preventDefault()
+
+      if (targetIdx === currentIdx || snapLockRef.current) return
+
+      snapLockRef.current = true
+      sections[targetIdx].scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+      window.setTimeout(() => {
+        snapLockRef.current = false
+      }, 620)
+    }
+
+    window.addEventListener('wheel', onWheel, { passive: false })
+    return () => {
+      window.removeEventListener('wheel', onWheel)
+    }
+  }, [])
 
   useEffect(() => {
     if (hasAnimatedRef.current) return
@@ -90,6 +141,11 @@ export default function App() {
                 <span className="menu-link-inner" data-text="Command">Projects</span>
               </a>
             </li>
+            <li className="menu-item menu-item--command">
+              <a href="#skills" className="menu-link">
+                <span className="menu-link-inner" data-text="Command">Skills</span>
+              </a>
+            </li>
             <li className="menu-item menu-item--logo">
               <a href="#education" className="menu-link">
                 <span className="menu-link-inner" data-text="Logo">Education</span>
@@ -110,16 +166,27 @@ export default function App() {
             <h2 className="section-heading">
               <span className="heading-prefix">01.</span> Projects
             </h2>
-            <div className="card-grid">
-              {projects.map((p) => (
-                <ProjectCard key={p.id} {...p} />
+            <ProjectDeck projects={projects} />
+          </section>
+
+          <section id="skills" className="section section--solid-blue" aria-label="Skills">
+            <h2 className="section-heading">
+              <span className="heading-prefix">02.</span> Skills
+            </h2>
+            <div className="card-grid card-grid--skills">
+              {skills.map((group) => (
+                <SkillsCard
+                  key={group.category}
+                  category={group.category}
+                  items={group.items}
+                />
               ))}
             </div>
           </section>
 
           <section id="education" className="section section--solid-blue" aria-label="Education">
             <h2 className="section-heading">
-              <span className="heading-prefix">02.</span> Education
+              <span className="heading-prefix">03.</span> Education
             </h2>
             <div className="card-grid card-grid--edu">
               {education.map((e) => (

@@ -1,0 +1,275 @@
+/* ─── Deck wrapper ─────────────────────────────────────────────── */
+.project-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* ─── Card stage ───────────────────────────────────────────────── */
+.deck-stage {
+  position: relative;
+  width: min(540px, 92vw);
+  min-height: var(--deck-stage-height, 470px);
+  overflow: visible;
+}
+
+.deck-card-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition:
+    transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity   0.38s ease;
+  will-change: transform, opacity;
+}
+
+/* ── Positions ─────────────────────────────────────────────────── */
+.deck-card-wrapper[data-pos="active"] {
+  transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  opacity: 1;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.deck-card-wrapper[data-pos="behind-1"] {
+  transform: translateX(20px) translateY(18px) rotate(3deg) scale(0.97);
+  opacity: 0.68;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.deck-card-wrapper[data-pos="behind-2"] {
+  transform: translateX(36px) translateY(32px) rotate(5.5deg) scale(0.94);
+  opacity: 0.38;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.deck-card-wrapper[data-pos="hidden"],
+.deck-card-wrapper[data-pos="past"] {
+  transform: translateX(0) translateY(0) rotate(0deg) scale(0.9);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Exit animations (fast easeIn) ────────────────────────────── */
+.deck-card-wrapper[data-pos="exit-left"] {
+  transform: translateX(-140%) translateY(-40px) rotate(-20deg) scale(0.85);
+  opacity: 0;
+  z-index: 11;
+  pointer-events: none;
+  transition:
+    transform 0.42s cubic-bezier(0.55, 0, 1, 0.45),
+    opacity   0.36s ease;
+}
+
+.deck-card-wrapper[data-pos="exit-right"] {
+  transform: translateX(140%) translateY(-40px) rotate(20deg) scale(0.85);
+  opacity: 0;
+  z-index: 11;
+  pointer-events: none;
+  transition:
+    transform 0.42s cubic-bezier(0.55, 0, 1, 0.45),
+    opacity   0.36s ease;
+}
+
+/* ─── Project year badge ───────────────────────────────────────── */
+.project-hero {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 0.9rem;
+  border: 1px solid rgba(232, 30, 45, 0.4);
+  background: #060606;
+  overflow: hidden;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.project-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.95) contrast(1.03);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.cyber-card:hover .project-hero-image {
+  transform: scale(1.03);
+  filter: saturate(1.05) contrast(1.08);
+}
+
+.project-hero-fallback {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(128deg, rgba(232, 30, 45, 0.26), transparent 45%),
+    repeating-linear-gradient(-35deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 10px),
+    linear-gradient(155deg, #0d0d0d, #17171c);
+}
+
+.project-year {
+  display: block;
+  font-family: var(--font-command);
+  font-size: 0.7rem;
+  color: rgba(0, 180, 255, 0.8);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+/* ─── Controls row ─────────────────────────────────────────────── */
+.deck-controls {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.deck-btn {
+  font-family: var(--font-command);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid rgba(232, 30, 45, 0.55);
+  color: rgba(255, 190, 190, 0.88);
+  padding: 7px 20px;
+  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+  cursor: pointer;
+  transition:
+    background    0.22s ease,
+    border-color  0.22s ease,
+    color         0.22s ease,
+    box-shadow    0.22s ease;
+}
+
+.deck-btn:hover:not(:disabled) {
+  background: rgba(200, 0, 15, 0.18);
+  border-color: #e81e2d;
+  color: #ff9090;
+  box-shadow: 0 0 14px rgba(232, 30, 45, 0.35);
+}
+
+.deck-btn:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+.deck-counter {
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.deck-counter-current {
+  font-size: 1.7rem;
+  color: #e81e2d;
+  text-shadow: 0 0 18px rgba(232, 30, 45, 0.65);
+  line-height: 1;
+}
+
+.deck-counter-sep {
+  font-size: 0.85rem;
+  color: rgba(255, 200, 200, 0.45);
+}
+
+.deck-counter-total {
+  font-size: 1rem;
+  color: rgba(255, 200, 200, 0.45);
+  line-height: 1;
+}
+
+/* ─── Timeline ─────────────────────────────────────────────────── */
+.deck-timeline {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  width: min(540px, 92vw);
+}
+
+.deck-tl-track {
+  position: absolute;
+  top: 9px;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: rgba(232, 30, 45, 0.25);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.deck-timeline-node {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 2px;
+  z-index: 1;
+}
+
+.deck-tl-dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(60, 0, 8, 0.7);
+  border: 1.5px solid rgba(232, 30, 45, 0.45);
+  flex-shrink: 0;
+  transition:
+    background    0.22s ease,
+    border-color  0.22s ease,
+    transform     0.22s ease,
+    box-shadow    0.22s ease;
+}
+
+.deck-timeline-node.active .deck-tl-dot {
+  background: #e81e2d;
+  border-color: #e81e2d;
+  transform: scale(1.5);
+  box-shadow: 0 0 12px rgba(232, 30, 45, 0.75);
+}
+
+.deck-timeline-node.past .deck-tl-dot {
+  background: rgba(232, 30, 45, 0.52);
+  border-color: rgba(232, 30, 45, 0.8);
+}
+
+.deck-tl-label {
+  font-family: var(--font-command);
+  font-size: 0.6rem;
+  color: rgba(235, 225, 225, 0.42);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.25;
+  transition: color 0.22s ease;
+  word-break: break-word;
+  max-width: 90px;
+}
+
+.deck-timeline-node.active .deck-tl-label {
+  color: rgba(255, 155, 155, 0.95);
+}
+
+.deck-timeline-node.past .deck-tl-label {
+  color: rgba(235, 225, 225, 0.3);
+}
+
+.deck-timeline-node:hover .deck-tl-dot {
+  border-color: #e81e2d;
+  transform: scale(1.25);
+}
+
+.deck-timeline-node:hover .deck-tl-label {
+  color: rgba(255, 155, 155, 0.75);
+}
