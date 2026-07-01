@@ -36,7 +36,7 @@ export default function App() {
       .add({
         targets: '.intro-card > *',
         opacity: [0, 1],
-        translateX: [-18, 0],
+        translateX: [-10, 0],
         delay: anime.stagger(90),
       }, '-=420')
 
@@ -72,40 +72,41 @@ export default function App() {
 
   return (
     <>
-      <Background />
-
       <div className="layout persona-layout">
 
         <nav className="nav" aria-label="Primary navigation">
           <div className="nav-shell">
             <span className="nav-brand nav-brand--top">Menu</span>
-
-            <ul className="nav-links nav-menu-list">
-              <li className="menu-item menu-item--heading">
-                <a href="#about" className="menu-link">
-                  <span className="menu-link-inner" data-text="Heading">About</span>
-                </a>
-              </li>
-              <li className="menu-item menu-item--command">
-                <a href="#projects" className="menu-link">
-                  <span className="menu-link-inner" data-text="Command">Projects</span>
-                </a>
-              </li>
-              <li className="menu-item menu-item--logo">
-                <a href="#education" className="menu-link">
-                  <span className="menu-link-inner" data-text="Logo">Education</span>
-                </a>
-              </li>
-            </ul>
           </div>
+
+          <ul className="nav-links nav-menu-list">
+            <li className="menu-item menu-item--heading">
+              <a href="#about" className="menu-link">
+                <span className="menu-link-inner" data-text="Heading">About</span>
+              </a>
+            </li>
+            <li className="menu-item menu-item--command">
+              <a href="#projects" className="menu-link">
+                <span className="menu-link-inner" data-text="Command">Projects</span>
+              </a>
+            </li>
+            <li className="menu-item menu-item--logo">
+              <a href="#education" className="menu-link">
+                <span className="menu-link-inner" data-text="Logo">Education</span>
+              </a>
+            </li>
+          </ul>
         </nav>
 
         <main>
-          <section id="about" className="section section--hero" aria-label="Introduction">
-            <IntroCard />
+          <section id="about" className="section section--hero section--about" aria-label="Introduction">
+            <Background />
+            <div className="intro-spread-wrap">
+              <IntroCard />
+            </div>
           </section>
 
-          <section id="projects" className="section" aria-label="Projects">
+          <section id="projects" className="section section--solid-blue" aria-label="Projects">
             <h2 className="section-heading">
               <span className="heading-prefix">01.</span> Projects
             </h2>
@@ -116,7 +117,7 @@ export default function App() {
             </div>
           </section>
 
-          <section id="education" className="section" aria-label="Education">
+          <section id="education" className="section section--solid-blue" aria-label="Education">
             <h2 className="section-heading">
               <span className="heading-prefix">02.</span> Education
             </h2>
