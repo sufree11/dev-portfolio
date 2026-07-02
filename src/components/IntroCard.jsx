@@ -42,7 +42,7 @@ export default function IntroCard() {
       kind: 'contacts',
       contacts: [
         { label: 'GitHub', href: 'https://github.com/sufree11' },
-        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/mohammad-sufree-bin-shahni-35990040a/' },
+        { label: 'LinkedIn', href: 'www.linkedin.com/in/sufree-shahni' },
         { label: 'Instagram', href: 'https://www.instagram.com/sufreeshahnii/' },
       ],
     },
