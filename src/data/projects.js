@@ -23,7 +23,7 @@ const projects = [
   {
     id:          'project-1',
     title:       'Smart Home System',
-    year:        '2025',
+    year:        '06/2025',
     description: 'Collaborative group project, utilising a full Java backend with Swing frontend to simulate a smart home environment, allowing users to add, remove, check on, and control various smart devices.',
     heroImage:   smarthomeHero,
     heroAlt:     'Dashboard for Smart Home System',
@@ -35,7 +35,7 @@ const projects = [
   {
     id:          'project-2',
     title:       'Vaccine Stock Management System',
-    year:        '2025',
+    year:        '02/2026',
     description: 'Collaborative group project, utilising a full Java backend, implementing Maven alongside JavaFX as the frontend framework in order to manage and track vaccine stock levels efficiently, allowing for manual adjustments and real-time monitoring.',
     heroImage:   vaccineHero,
     heroAlt:     'Vaccine Stock Management Dashboard',
@@ -47,7 +47,7 @@ const projects = [
   {
     id:          'project-3',
     title:       'Imvidia Electronics',
-    year:        '2026',
+    year:        '06/2026',
     description: 'Collaborative group project, utilising a full PHP and Javascript backend with a CSS3 frontend, alongside stylisation through Tailwind CSS, to create an app platform for Imvidia Electronics, allowing users to browse products, add items to their cart, and make purchases.',
     heroImage:   imvidiaHero,
     heroAlt:     'Imvidia Electronics Main Page',
@@ -59,7 +59,7 @@ const projects = [
   {
     id:          'project-4',
     title:       'QIAO',
-    year:        '2026',
+    year:        '06/2026',
     description: 'A brief description of what this project does and the problem it solves.',
     heroImage:   qiaoHero,
     heroAlt:     'QIAO Learning Screen',

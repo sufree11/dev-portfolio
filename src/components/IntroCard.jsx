@@ -26,7 +26,7 @@ export default function IntroCard() {
   const secondaryCards = [
     {
       id: 'languages',
-      label: 'Spoken Languages',
+      label: 'Languages',
       kind: 'languages',
       items: ['Chinese', 'Malay', 'English'],
     },
@@ -34,7 +34,7 @@ export default function IntroCard() {
       id: 'quote',
       label: 'Quote',
       kind: 'quote',
-      value: 'Memento Mori. Time never waits, so make the work count.',
+      value: 'Memento Mori. Remember you will die. Time never waits. It delivers all equally to the same end.',
     },
     {
       id: 'contacts',
@@ -90,7 +90,7 @@ export default function IntroCard() {
                         <span className="intro-secondary-link-icon" aria-hidden="true">
                           {contactIcons[contact.label]}
                         </span>
-                        {contact.label} <span aria-hidden="true">↗</span>
+                        {contact.label} 
                       </a>
                     </li>
                   ))}
@@ -111,14 +111,15 @@ export default function IntroCard() {
       >
         <Card className="intro-card" tag="PROFILE">
           <span className="intro-click-indicator">{expanded ? 'TUCK!' : 'SPREAD!'}</span>
-          <p className="intro-greeting">LEADER / XI-11</p>
-          <h1 className="intro-name">Sufree Shahni</h1>
-          <p className="intro-title"><span aria-hidden="true">{'// '}</span>Full-Stack Developer &amp; Engineer</p>
+          <p className="intro-greeting">FILE 1 / XI-11</p>
+          <h1 className="intro-name"> Sufree </h1>
+          <h2 className="intro-name2"> Shahni </h2><br />
+          <p className="intro-title"><span aria-hidden="true">{'> '}</span>Full-Stack Developer <br />{'> '} Software Engineer</p>
           <p className="intro-bio">
-            <span className="highlight">"Memento Mori."</span> <br />
-            Remember you will die. <br />
-            Time never waits. <br />
-            It delivers all equally to the same end.
+            <span className="highlight">"Who Am I?"</span> <br />
+            Up-and-Coming software developer focused on building high-efficiency app platforms. <br />
+            <span className="highlight">"How?"</span> <br />
+            By focusing on user experience and performance, aiming to build platforms that last. 
           </p>
           <div className="intro-status">
             <span className="status-dot" />

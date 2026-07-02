@@ -12,37 +12,37 @@ const skills = [
   {
     category: 'Languages',
     items: [
-      { name: 'JavaScript',  level: 80 },
-      { name: 'TypeScript',  level: 65 },
-      { name: 'Python',      level: 70 },
-      { name: 'HTML / CSS',  level: 85 },
+      { name: 'HTML / CSS',  level: 95 },
+      { name: 'C++',  level: 87 },
+      { name: 'Java',      level: 76 },
+      { name: 'JavaScript',  level: 60 },
     ],
   },
   {
     category: 'Frontend',
     items: [
+      { name: 'Tailwind',    level: 92 },
       { name: 'React',       level: 80 },
-      { name: 'Next.js',     level: 62 },
       { name: 'Vite',        level: 75 },
-      { name: 'Tailwind',    level: 68 },
+      { name: 'Angular',     level: 62 },
     ],
   },
   {
     category: 'Backend',
     items: [
+      { name: 'MySQL',     level: 92 },
+      { name: 'NoSQL',  level: 83 },
       { name: 'Node.js',     level: 72 },
-      { name: 'FastAPI',     level: 60 },
-      { name: 'PostgreSQL',  level: 65 },
-      { name: 'REST APIs',   level: 74 },
     ],
   },
   {
     category: 'Tools',
     items: [
-      { name: 'Git / GitHub', level: 82 },
-      { name: 'Docker',       level: 55 },
-      { name: 'Linux',        level: 60 },
       { name: 'VS Code',      level: 88 },
+      { name: 'DigitalOcean',        level: 83 },
+      { name: 'Git / GitHub', level: 82 },
+      { name: 'Figma',        level: 72 },
+      { name: 'Docker',       level: 67 },
     ],
   },
 ]
