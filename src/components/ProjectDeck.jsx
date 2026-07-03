@@ -7,9 +7,22 @@ export default function ProjectDeck({ projects }) {
   const [activeIdx, setActiveIdx]   = useState(0)
   const [exitingIdx, setExitingIdx] = useState(null)
   const [exitDir, setExitDir]       = useState('left')
-  const [stageMinHeight, setStageMinHeight] = useState(470)
+  const [stageMinHeight, setStageMinHeight] = useState(530)
+  const [portraitMap, setPortraitMap] = useState({})
   const wheelLockRef                = useRef(false)
   const stageRef                    = useRef(null)
+
+  const handleHeroImageLoad = useCallback((projectId, e) => {
+    const img = e.currentTarget
+    if (!img?.naturalWidth || !img?.naturalHeight) return
+
+    // Treat only clearly vertical images as portrait to avoid jitter near square ratios.
+    const isPortrait = img.naturalHeight / img.naturalWidth >= 1.08
+    setPortraitMap((prev) => {
+      if (prev[projectId] === isPortrait) return prev
+      return { ...prev, [projectId]: isPortrait }
+    })
+  }, [])
 
   const canNext = activeIdx < projects.length - 1
   const canPrev = activeIdx > 0
@@ -93,7 +106,7 @@ export default function ProjectDeck({ projects }) {
 
     if (tallest > 0) {
       // Extra breathing room prevents animated card transforms from clipping controls.
-      setStageMinHeight(Math.ceil(tallest + 18))
+      setStageMinHeight(Math.ceil(tallest + 14))
     }
   }, [])
 
@@ -144,6 +157,7 @@ export default function ProjectDeck({ projects }) {
       >
         {projects.map((proj, i) => {
           const pos = getCardPos(i)
+          const isPortrait = Boolean(portraitMap[proj.id])
           return (
             <div
               key={proj.id}
@@ -151,7 +165,7 @@ export default function ProjectDeck({ projects }) {
               data-pos={pos}
               aria-hidden={pos !== 'active' ? 'true' : undefined}
             >
-              <Card className="project-card" tag="PROJECT">
+              <Card className={`project-card${isPortrait ? ' project-card--portrait' : ''}`} tag="PROJECT">
                 <div className="project-hero" aria-hidden={proj.heroImage ? undefined : 'true'}>
                   {proj.heroImage ? (
                     <img
@@ -159,6 +173,7 @@ export default function ProjectDeck({ projects }) {
                       src={proj.heroImage}
                       alt={proj.heroAlt || `${proj.title} project preview`}
                       loading="lazy"
+                      onLoad={(e) => handleHeroImageLoad(proj.id, e)}
                     />
                   ) : (
                     <div className="project-hero-fallback" />

@@ -127,6 +127,7 @@ export default function App() {
 
         <nav className="nav" aria-label="Primary navigation">
           <div className="nav-shell">
+            <span className="nav-shell-triangle" aria-hidden="true" />
             <span className="nav-brand nav-brand--top">Menu</span>
           </div>
 
@@ -164,14 +165,14 @@ export default function App() {
 
           <section id="projects" className="section section--solid-blue" aria-label="Projects">
             <h2 className="section-heading">
-              <span className="heading-prefix">01.</span> Projects
+               Projects
             </h2>
             <ProjectDeck projects={projects} />
           </section>
 
           <section id="skills" className="section section--solid-blue" aria-label="Skills">
             <h2 className="section-heading">
-              <span className="heading-prefix">02.</span> Skills
+ Skills
             </h2>
             <div className="card-grid card-grid--skills">
               {skills.map((group) => (

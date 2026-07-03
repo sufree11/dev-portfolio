@@ -2,10 +2,12 @@
   position: relative;
   width: min(500px, 88vw);
   min-height: 620px;
+  
 }
 
 .intro-main-clickzone {
   position: relative;
+  
   z-index: 10;
   cursor: pointer;
   margin-top: 56px;
@@ -26,6 +28,7 @@
   max-width: 100%;
   transform: perspective(960px) rotateX(1.4deg) rotateY(-2.5deg);
   transform-style: preserve-3d;
+  animation: jitter-card-b 1.7s steps(2, end) infinite;
 }
 
 .intro-click-indicator {

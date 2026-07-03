@@ -60,7 +60,7 @@ const projects = [
     id:          'project-4',
     title:       'QIAO',
     year:        '06/2026',
-    description: 'A brief description of what this project does and the problem it solves.',
+    description: 'A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.A brief description of what this project does and the problem it solves.',
     heroImage:   qiaoHero,
     heroAlt:     'QIAO Learning Screen',
     tech:        ['React', 'Node.js', 'PostgreSQL'],
