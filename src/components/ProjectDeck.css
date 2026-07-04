@@ -1,14 +1,24 @@
 /* ─── Deck wrapper ─────────────────────────────────────────────── */
 .project-deck {
-  --deck-width: min(460px, 88vw);
+  --deck-width: min(560px, 88vw);
   --project-card-height: 530px;
   --hero-max-height: 150px;
   --hero-portrait-max-height: calc(var(--project-card-height) - 40px);
+  
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* This puts them side-by-side */
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 4rem; /* Adds nice breathing room between menu and cards */
   width: 100%;
+
+  margin-top: -4rem;
+}
+
+.deck-sidebar {
+  flex-shrink: 0; /* Prevents the buttons from squishing */
+  position: relative;
+  z-index: 20;
 }
 
 /* ─── Card stage ───────────────────────────────────────────────── */
@@ -32,7 +42,7 @@
 }
 
 .deck-card-wrapper .project-card {
-  width: 100%;
+  width: 150%;
   height: var(--project-card-height);
   min-height: var(--project-card-height);
 }
@@ -46,7 +56,7 @@
   height: 100%;
   overflow-y: auto; 
   overflow-x: hidden;
-  padding-right: 8px; /* Adds space for the scrollbar */
+  padding-right: 16px; /* Adds space for the scrollbar */
   scrollbar-width: thin;
   scrollbar-color: rgba(232, 30, 45, 0.6) rgba(255, 255, 255, 0.05);
 }
@@ -239,170 +249,12 @@
   box-shadow: 0 0 8px rgba(232, 30, 45, 0.3);
 }
 
-/* ─── Controls row ─────────────────────────────────────────────── */
-.deck-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--deck-width);
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.deck-btn {
-  font-family: var(--font-command);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: transparent;
-  border: 1px solid rgba(232, 30, 45, 0.55);
-  color: rgba(255, 190, 190, 0.88);
-  padding: 7px 20px;
-  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
-  cursor: pointer;
-  transition:
-    background    0.22s ease,
-    border-color  0.22s ease,
-    color         0.22s ease,
-    box-shadow    0.22s ease;
-}
-
-.deck-btn:hover:not(:disabled) {
-  background: rgba(200, 0, 15, 0.18);
-  border-color: #e81e2d;
-  color: #ff9090;
-  box-shadow: 0 0 14px rgba(232, 30, 45, 0.35);
-}
-
-.deck-btn:disabled {
-  opacity: 0.28;
-  cursor: not-allowed;
-}
-
-.deck-counter {
-  font-family: var(--font-heading);
-  display: flex;
-  align-items: baseline;
-  gap: 0.2rem;
-}
-
-.deck-counter-current {
-  font-size: 1.7rem;
-  color: #e81e2d;
-  text-shadow: 0 0 18px rgba(232, 30, 45, 0.65);
-  line-height: 1;
-}
-
-.deck-counter-sep {
-  font-size: 0.85rem;
-  color: rgba(255, 200, 200, 0.45);
-}
-
-.deck-counter-total {
-  font-size: 1rem;
-  color: rgba(255, 200, 200, 0.45);
-  line-height: 1;
-}
-
-/* ─── Timeline ─────────────────────────────────────────────────── */
-.deck-timeline {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  width: var(--deck-width);
-  margin-top: 0.65rem;
-  z-index: 2;
-}
-
-.deck-tl-track {
-  position: absolute;
-  top: 9px;
-  left: 5%;
-  right: 5%;
-  height: 1px;
-  background: rgba(232, 30, 45, 0.25);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.deck-timeline-node {
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.55rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0 2px;
-  z-index: 1;
-}
-
-.deck-tl-dot {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(60, 0, 8, 0.7);
-  border: 1.5px solid rgba(232, 30, 45, 0.45);
-  flex-shrink: 0;
-  transition:
-    background    0.22s ease,
-    border-color  0.22s ease,
-    transform     0.22s ease,
-    box-shadow    0.22s ease;
-}
-
-.deck-timeline-node.active .deck-tl-dot {
-  background: #e81e2d;
-  border-color: #e81e2d;
-  transform: scale(1.5);
-  box-shadow: 0 0 12px rgba(232, 30, 45, 0.75);
-}
-
-.deck-timeline-node.past .deck-tl-dot {
-  background: rgba(232, 30, 45, 0.52);
-  border-color: rgba(232, 30, 45, 0.8);
-}
-
-.deck-tl-label {
-  font-family: var(--font-command);
-  font-size: 0.6rem;
-  color: rgba(235, 225, 225, 0.42);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 1.25;
-  transition: color 0.22s ease;
-  word-break: break-word;
-  max-width: 90px;
-}
-
-.deck-timeline-node.active .deck-tl-label {
-  color: rgba(255, 155, 155, 0.95);
-}
-
-.deck-timeline-node.past .deck-tl-label {
-  color: rgba(235, 225, 225, 0.3);
-}
-
-.deck-timeline-node:hover .deck-tl-dot {
-  border-color: #e81e2d;
-  transform: scale(1.25);
-}
-
-.deck-timeline-node:hover .deck-tl-label {
-  color: rgba(255, 155, 155, 0.75);
-}
-
-@media (max-width: 640px) {
+@media (max-width: 800px) { /* Increased breakpoint slightly to give side-by-side more room */
   .project-deck {
-    --deck-width: min(94vw, 360px);
-    --project-card-height: 390px;
-    --hero-max-height: 110px;
-    gap: 1.2rem;
+    flex-direction: column; /* Stacks vertically on smaller screens */
+    gap: 2rem;
   }
+}
 
   .project-card--portrait .card-content {
     display: flex;
@@ -420,4 +272,3 @@
   .project-card--portrait .project-hero-image {
     max-height: var(--hero-max-height);
   }
-}

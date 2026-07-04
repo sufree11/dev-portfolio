@@ -2,9 +2,11 @@ import { useState, useCallback, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import Card from './Card.jsx'
 import './ProjectDeck.css'
+import Buttons from './Buttons.jsx'
 
 export default function ProjectDeck({ projects }) {
   const [activeIdx, setActiveIdx]   = useState(0)
+  const [pendingIdx, setPendingIdx] = useState(0)
   const [exitingIdx, setExitingIdx] = useState(null)
   const [exitDir, setExitDir]       = useState('left')
   const [stageMinHeight, setStageMinHeight] = useState(530)
@@ -34,6 +36,7 @@ export default function ProjectDeck({ projects }) {
 
     setExitDir(dir > 0 ? 'left' : 'right')
     setExitingIdx(activeIdx)
+    setPendingIdx(newIdx)
     setTimeout(() => {
       setActiveIdx(newIdx)
       setExitingIdx(null)
@@ -44,6 +47,7 @@ export default function ProjectDeck({ projects }) {
     if (exitingIdx !== null || target === activeIdx) return
     setExitDir(target > activeIdx ? 'left' : 'right')
     setExitingIdx(activeIdx)
+    setPendingIdx(target)
     setTimeout(() => {
       setActiveIdx(target)
       setExitingIdx(null)
@@ -144,10 +148,19 @@ export default function ProjectDeck({ projects }) {
     return 'hidden'
   }
 
-  return (
+return (
     <div className="project-deck">
+      
+      {/* 1. Buttons (Left Side) */}
+      <div className="deck-sidebar">
+        <Buttons 
+          projects={projects} 
+          activeIndex={pendingIdx} /* Changed this line */
+          onSelect={jumpTo} 
+        />
+      </div>
 
-      {/* Card stack */}
+      {/* 2. Card Stage (Right Side) */}
       <div
         className="deck-stage"
         role="region"
@@ -208,51 +221,6 @@ export default function ProjectDeck({ projects }) {
             </div>
           )
         })}
-      </div>
-
-      {/* Controls row */}
-      <div className="deck-controls">
-        <button
-          className="deck-btn deck-btn--prev"
-          onClick={() => navigate(-1)}
-          disabled={!canPrev || exitingIdx !== null}
-          aria-label="Previous project"
-        >
-          ← PREV
-        </button>
-
-        <span className="deck-counter" aria-live="polite">
-          <span className="deck-counter-current">{String(activeIdx + 1).padStart(2, '0')}</span>
-          <span className="deck-counter-sep">/</span>
-          <span className="deck-counter-total">{String(projects.length).padStart(2, '0')}</span>
-        </span>
-
-        <button
-          className="deck-btn deck-btn--next"
-          onClick={() => navigate(1)}
-          disabled={!canNext || exitingIdx !== null}
-          aria-label="Next project"
-        >
-          NEXT →
-        </button>
-      </div>
-
-      {/* Timeline */}
-      <div className="deck-timeline" role="tablist" aria-label="Jump to project">
-        <div className="deck-tl-track" aria-hidden="true" />
-        {projects.map((proj, i) => (
-          <button
-            key={proj.id}
-            role="tab"
-            aria-selected={i === activeIdx}
-            className={`deck-timeline-node${i === activeIdx ? ' active' : ''}${i < activeIdx ? ' past' : ''}`}
-            onClick={() => jumpTo(i)}
-            title={proj.title}
-          >
-            <span className="deck-tl-dot" />
-            <span className="deck-tl-label">{proj.year ?? proj.title}</span>
-          </button>
-        ))}
       </div>
 
     </div>

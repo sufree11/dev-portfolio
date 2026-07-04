@@ -424,6 +424,14 @@ body {
   padding-right: max(2.3rem, calc((100vw - 1160px) / 2 + 2.3rem));
 }
 
+.section--skills {
+  max-width: none;
+  margin: 0;
+  padding-left: max(2.3rem, calc((100vw - 1160px) / 2 + 2.3rem));
+  padding-right: max(2.3rem, calc((100vw - 1160px) / 2 + 2.3rem));
+  overflow: hidden;
+}
+
 @keyframes nav-triangle-pulse {
   0% {
     transform: scale(1);
@@ -460,12 +468,11 @@ body {
   top: 8rem;
   left: -32rem;
   font-family: var(--font-heading);
-  font-size: clamp(4rem, 3vw, 4rem);
-  color: var(--color-text);
+  font-size: clamp(6rem, 4vw, 5rem);
+  color:rgb(178, 178, 178); 
   letter-spacing: -0.05em;
-  margin-bottom: 0.1rem;
   margin-left: 0.5rem;
-  -webkit-text-stroke: 0.06em var(--color-text);
+  -webkit-text-stroke: 0.05em rgb(178, 178, 178);
   display: flex;
   align-items: center;
   gap: 0.1rem;

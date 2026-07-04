@@ -5,46 +5,9 @@
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(circle at 16% 28%, rgba(22, 207, 251, 0.2), transparent 18%),
-    radial-gradient(circle at 82% 14%, rgba(255, 0, 85, 0.14), transparent 20%),
-    radial-gradient(circle at 50% 78%, rgba(119, 254, 252, 0.1), transparent 28%),
-    linear-gradient(180deg, rgba(5, 14, 48, 0.42) 0%, rgba(8, 18, 40, 0.22) 44%, rgba(5, 9, 18, 0.06) 100%);
+    linear-gradient(180deg, rgb(1, 158, 255) 0%, rgb(0, 81, 255) 44%, rgb(2, 6, 131) 100%);
 }
 
-.persona-bg__wash,
-.persona-bg__halo,
-.persona-bg__slash,
-.persona-bg__beam {
-  position: absolute;
-}
-
-.persona-bg__wash {
-  inset: 0;
-  background:
-    linear-gradient(110deg, rgba(255, 255, 255, 0.08) 0 9%, transparent 9% 100%),
-    radial-gradient(circle at 22% 18%, rgba(125, 230, 253, 0.2), transparent 15%),
-    radial-gradient(circle at 72% 24%, rgba(22, 207, 251, 0.16), transparent 18%);
-  opacity: 0.34;
-}
-
-.persona-bg__halo {
-  top: 8%;
-  width: min(42vw, 540px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  filter: blur(18px);
-  mix-blend-mode: screen;
-}
-
-.persona-bg__halo--left {
-  left: -7%;
-  background: radial-gradient(circle at 40% 40%, rgba(22, 207, 251, 0.4), transparent 66%);
-}
-
-.persona-bg__halo--right {
-  right: -10%;
-  background: radial-gradient(circle at 45% 35%, rgba(255, 0, 85, 0.28), transparent 68%);
-}
 
 .persona-bg__slash {
   width: 42vw;
@@ -72,7 +35,7 @@
   box-shadow: 0 0 24px rgba(22, 207, 251, 0.28);
 }
 
-.bg-video {
+.bg-video1 {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -85,20 +48,56 @@
   will-change: opacity, transform;
 }
 
-.bg-video.is-active {
+.bg-video2 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is the magic property that kills black bars */
+  opacity: 0;
+  transform: scale(1.08) translateY(1.5%);
+  filter: none;
+  transition: opacity 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: opacity, transform;
+}
+
+.bg-video3 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is the magic property that kills black bars */
+  opacity: 0;
+  transform: scale(1.08) translateY(1.5%);
+  filter: none;
+  transition: opacity 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 140ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: opacity, transform;
+}
+
+.bg-video2.is-active {
+  opacity: 1;
+  transform: scale(1.04) translateY(0); /* You can adjust this transform to fit your desired animation */
+}
+
+.bg-video3.is-active {
+  opacity: 1;
+  transform: scale(1.04) translateY(0); /* You can adjust this transform to fit your desired animation */
+}
+
+.bg-video1.is-active {
   opacity: 1;
   transform: scale(1.04) translateY(0);
 }
 
-.bg-video--intro {
+.bg-video1--intro {
   filter: none;
 }
 
-.bg-video--loop {
+.bg-video1--loop {
   filter: none;
 }
 
-.bg-video.is-warm {
+.bg-video1.is-warm {
   opacity: 0.001;
   transform: scale(1.04) translateY(0);
 }

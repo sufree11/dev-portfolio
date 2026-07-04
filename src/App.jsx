@@ -8,6 +8,9 @@ import EducationCard from './components/EducationCard.jsx'
 import projects      from './data/projects.js'
 import skills        from './data/skills.js'
 import education     from './data/education.js'
+import SkillsBackground from './components/SkillsBackground.jsx'
+import Buttons from './components/Buttons.jsx';
+import ProjectBackground from './components/ProjectBackground.jsx';
 import './App.css'
 
 export default function App() {
@@ -94,7 +97,6 @@ export default function App() {
     anime({
       targets: '.section-heading',
       opacity: [0, 1],
-      translateX: [-28, 0],
       duration: 680,
       easing: 'easeOutExpo',
       delay: 420,
@@ -159,31 +161,38 @@ export default function App() {
           <section id="about" className="section section--hero section--about" aria-label="Introduction">
             <Background />
             <div className="intro-spread-wrap">
+              
               <IntroCard />
+              
             </div>
           </section>
 
           <section id="projects" className="section section--solid-blue" aria-label="Projects">
+            <ProjectBackground />
             <h2 className="section-heading">
                Projects
             </h2>
             <ProjectDeck projects={projects} />
           </section>
 
-          <section id="skills" className="section section--solid-blue" aria-label="Skills">
-            <h2 className="section-heading">
- Skills
-            </h2>
-            <div className="card-grid card-grid--skills">
-              {skills.map((group) => (
-                <SkillsCard
-                  key={group.category}
-                  category={group.category}
-                  items={group.items}
-                />
-              ))}
-            </div>
-          </section>
+          <section id="skills" className="section section--skills" aria-label="Skills">
+  <SkillsBackground />
+  
+  <div className="intro-spread-wrap">
+    <h2 className="section-heading">
+      Skills
+    </h2>
+    <div className="card-grid card-grid--skills">
+      {skills.map((group) => (
+        <SkillsCard
+          key={group.category}
+          category={group.category}
+          items={group.items}
+        />
+      ))}
+    </div>
+  </div>
+</section>
 
           <section id="education" className="section section--solid-blue" aria-label="Education">
             <h2 className="section-heading">
