@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import Card from './Card.jsx'
+import './ProjectCard.css'
 import './ProjectDeck.css'
 import Buttons from './Buttons.jsx'
 

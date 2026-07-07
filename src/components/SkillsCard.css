@@ -13,12 +13,12 @@
 .skills-cat-title {
   font-family: var(--font-heading);
   font-size: 1rem;
-  color: rgba(255, 155, 155, 0.92);
+  color: var(--color-cyan-2);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.9rem;
   padding-bottom: 0.38rem;
-  border-bottom: 1px solid rgba(232, 30, 45, 0.32);
+  border-bottom: 1px solid rgba(22, 207, 251, 0.35);
   transform: scaleY(1.12) scaleX(0.94);
   transform-origin: left center;
 }
@@ -70,10 +70,10 @@
   height: 100%;
   width: 0;                 /* start at 0 for animation */
   background: linear-gradient(90deg,
-    rgba(232, 30, 45, 0.92),
-    rgba(255, 110, 110, 0.65)
+    rgba(22, 207, 251, 0.92),
+    rgba(255, 0, 85, 0.65)
   );
-  box-shadow: 0 0 6px rgba(232, 30, 45, 0.5);
+  box-shadow: 0 0 6px rgba(22, 207, 251, 0.5);
   border-radius: 2px;
   animation: skill-bar-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }

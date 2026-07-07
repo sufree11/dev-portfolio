@@ -14,33 +14,36 @@
 }
 
 .project-title {
+  display: inline-block;
   font-family: var(--font-heading);
   font-size: 1.38rem;
-  color: #f5f0f0;
+  color: var(--color-cyan-2);
   letter-spacing: 0.03em;
   text-transform: uppercase;
   transform: scaleY(1.18) scaleX(0.93);
   transform-origin: left center;
-  -webkit-text-stroke: 0px transparent;
-  transition: color 0.26s ease, -webkit-text-stroke 0.26s ease, text-shadow 0.26s ease;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+  padding: 0.05em 0;
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+  transition: color 0.05s ease, background 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275), text-shadow 0.05s ease, padding 0.12s ease;
+  text-shadow:
+    1px 1px 0 rgba(22, 207, 251, 0.35),
+    -1px 0 0 rgba(119, 254, 252, 0.3);
 }
 
 .cyber-card:hover .project-title {
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(232, 30, 45, 0.92);
-  text-shadow:
-    0 0 18px rgba(232, 30, 45, 0.55),
-    0 0 36px rgba(180, 0, 20, 0.25);
+  color: #000000;
+  background: linear-gradient(100deg, #ffffff 0%, #ffffff 82%, var(--color-magenta) 82%, var(--color-magenta) 100%);
+  padding: 0.05em 0.5em 0.05em 0.2em;
+  text-shadow: none;
 }
 
 .project-status {
   font-size: 0.68rem;
-  color: #ff8a8a;
+  color: #041014;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  border: 1px solid rgba(232, 30, 45, 0.6);
-  background: rgba(100, 0, 10, 0.4);
+  border: 1px solid rgba(22, 207, 251, 0.7);
+  background: var(--color-cyan-3);
   padding: 1px 9px;
   clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
   white-space: nowrap;
@@ -65,25 +68,27 @@
 }
 
 .tech-pill {
-  font-size: 0.72rem;
-  background: rgba(120, 0, 10, 0.22);
-  border: 1px solid rgba(232, 30, 45, 0.45);
-  color: rgba(255, 210, 210, 0.9);
-  padding: 2px 10px;
-  clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
-  letter-spacing: 0.05em;
-  font-family: var(--font-body);
-  transform: scaleY(1.12) scaleX(0.94);
-  transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, -webkit-text-stroke 0.22s ease;
-  -webkit-text-stroke: 0px transparent;
+  position: relative;
+  font-size: 0.7rem;
+  background: linear-gradient(100deg, rgba(22, 207, 251, 0.24), rgba(119, 254, 252, 0.12));
+  border: 1px solid rgba(22, 207, 251, 0.6);
+  color: var(--color-cyan-2);
+  padding: 3px 14px 2px;
+  clip-path: polygon(14% 0, 100% 0, 86% 100%, 0 100%);
+  letter-spacing: 0.02em;
+  font-family: var(--font-command);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: skewX(-10deg) scaleY(1.14) scaleX(0.92);
+  transform-origin: center;
+  transition: background 0.06s ease, color 0.06s ease, border-color 0.06s ease, transform 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.cyber-card:hover .tech-pill {
-  background: rgba(180, 0, 15, 0.18);
-  border-color: rgba(232, 30, 45, 0.9);
-  color: transparent;
-  -webkit-text-stroke: 0.8px rgba(255, 120, 120, 0.92);
-  text-shadow: 0 0 8px rgba(232, 30, 45, 0.45);
+.tech-pill:hover {
+  background: linear-gradient(100deg, #ffffff 0%, #ffffff 80%, var(--color-magenta) 80%, var(--color-magenta) 100%);
+  border-color: var(--color-magenta);
+  color: #000000;
+  transform: skewX(-10deg) scaleY(1.14) scaleX(0.96) translateY(-2px);
 }
 
 .project-links {
@@ -94,16 +99,16 @@
 
 .project-link {
   font-size: 0.8rem;
-  color: #0099ff;
+  color: var(--color-cyan-1);
   font-family: var(--font-command);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transform: scaleY(1.14) scaleX(0.94);
-  transition: color 0.22s ease, text-shadow 0.22s ease;
+  transition: color 0.08s ease, text-shadow 0.08s ease;
 }
 
 .project-link:hover {
-  color: #e81e2d;
-  text-shadow: 0 0 10px rgba(232, 30, 45, 0.55);
+  color: var(--color-magenta);
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.55);
   opacity: 1;
 }

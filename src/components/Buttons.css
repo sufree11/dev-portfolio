@@ -382,16 +382,76 @@
         /* left: role label */
         .sc-role {
           display: flex;
-          align-items: center;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
           flex-shrink: 0;
           font-family: var(--font-heading);
-          font-size: 46px;
-          letter-spacing: -2px;
           color: #ffffff;
-          transform: rotate(-22deg) scaleX(0.72) translateX(-64px);
           user-select: none;
           line-height: 1;
           padding: 0 12px 0 2px;
+          transform: translateX(-14px);
+        }
+
+        .sc-role-month,
+        .sc-role-year {
+          position: relative;
+          display: inline-block;
+          font-style: italic;
+          text-transform: uppercase;
+          color: transparent;
+        }
+
+        .sc-role-month {
+          font-size: 52px;
+          letter-spacing: 1px;
+        }
+
+        .sc-role-year {
+          font-size: 40px;
+          letter-spacing: 1px;
+          opacity: 0.85;
+        }
+
+        /* solid fill layer — visible by default, wiped away on hover */
+        .sc-role-month::before,
+        .sc-role-year::before {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: #ffffff;
+          clip-path: polygon(-20% 0, 140% 0, 120% 100%, -40% 100%);
+          transition: clip-path 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+          pointer-events: none;
+        }
+
+        /* outline layer — hidden by default, wiped in on hover, same angle as the fill wipe */
+        .sc-role-month::after,
+        .sc-role-year::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: transparent;
+          paint-order: stroke fill;
+          clip-path: polygon(140% 0, 140% 0, 120% 100%, 120% 100%);
+          transition: clip-path 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+          pointer-events: none;
+        }
+
+        .sc-role-month::after { -webkit-text-stroke: 1.5px var(--color-cyan-3); }
+        .sc-role-year::after  { -webkit-text-stroke: 1.5px var(--color-cyan-1); }
+
+        .sc-bar:hover .sc-role-month::before,
+        .sc-bar:hover .sc-role-year::before {
+          clip-path: polygon(140% 0, 140% 0, 120% 100%, 120% 100%);
+        }
+
+        .sc-bar:hover .sc-role-month::after,
+        .sc-bar:hover .sc-role-year::after {
+          clip-path: polygon(-20% 0, 140% 0, 120% 100%, -40% 100%);
         }
 
         /* left: icon + name centered in remaining space */

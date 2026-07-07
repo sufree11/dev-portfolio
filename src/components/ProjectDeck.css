@@ -58,7 +58,7 @@
   overflow-x: hidden;
   padding-right: 16px; /* Adds space for the scrollbar */
   scrollbar-width: thin;
-  scrollbar-color: rgba(232, 30, 45, 0.6) rgba(255, 255, 255, 0.05);
+  scrollbar-color: rgba(22, 207, 251, 0.6) rgba(255, 255, 255, 0.05);
 }
 
 /* Ensure floats are cleared at the bottom of the card content */
@@ -77,12 +77,12 @@
 }
 
 .deck-card-wrapper .project-card .card-content::-webkit-scrollbar-thumb {
-  background: rgba(232, 30, 45, 0.55);
+  background: rgba(22, 207, 251, 0.55);
   border-radius: 3px;
 }
 
 .deck-card-wrapper .project-card .card-content::-webkit-scrollbar-thumb:hover {
-  background: rgba(232, 30, 45, 0.8);
+  background: var(--color-magenta);
 }
 
 
@@ -197,7 +197,7 @@
   width: 100%;
   height: var(--hero-max-height);
   background:
-    linear-gradient(128deg, rgba(232, 30, 45, 0.26), transparent 45%),
+    linear-gradient(128deg, rgba(22, 207, 251, 0.26), transparent 45%),
     repeating-linear-gradient(-35deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 10px),
     linear-gradient(155deg, #0d0d0d, #17171c);
 }
@@ -229,25 +229,7 @@
   clear: both; /* Ensures it drops below the floated image */
 }
 
-.tech-stack li {
-  background: rgba(232, 30, 45, 0.1);
-  border: 1px solid rgba(232, 30, 45, 0.4);
-  color: rgba(255, 190, 190, 0.9);
-  padding: 0.3rem 0.8rem;
-  border-radius: 50px; 
-  font-family: var(--font-command);
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: all 0.2s ease;
-}
-
-.tech-stack li:hover {
-  background: rgba(232, 30, 45, 0.25);
-  border-color: #e81e2d;
-  box-shadow: 0 0 8px rgba(232, 30, 45, 0.3);
-}
+/* Per-item look lives in ProjectCard.css .tech-pill (shared with the deck) */
 
 @media (max-width: 800px) { /* Increased breakpoint slightly to give side-by-side more room */
   .project-deck {
