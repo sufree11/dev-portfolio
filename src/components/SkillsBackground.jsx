@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import skillsVideo from '../assets/vid/bg-skills.mp4'
+import skillsVideo from '../assets/vid/bg-projects.mp4'
 import './Background.css'
 
 export default function SkillsBackground() {

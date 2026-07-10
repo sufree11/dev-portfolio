@@ -14,6 +14,7 @@ const skills = [
     items: [
       { name: 'HTML / CSS',  level: 95 },
       { name: 'C++',  level: 87 },
+      { name: 'VB.NET',  level: 85 },
       { name: 'Java',      level: 76 },
       { name: 'JavaScript',  level: 60 },
     ],

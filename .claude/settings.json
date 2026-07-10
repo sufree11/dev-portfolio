@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node shot3.cjs)",
+      "Bash(npm run *)",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:5183/dev-portfolio/ >/dev/null; do sleep 1; done')"
+    ]
+  }
+}

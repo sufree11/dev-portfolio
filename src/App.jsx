@@ -9,6 +9,7 @@ import projects      from './data/projects.js'
 import skills        from './data/skills.js'
 import education     from './data/education.js'
 import SkillsBackground from './components/SkillsBackground.jsx'
+import EducationBackground from './components/EducationBackground.jsx'
 import Buttons from './components/Buttons.jsx';
 import ProjectBackground from './components/ProjectBackground.jsx';
 import './App.css'
@@ -111,6 +112,15 @@ export default function App() {
       delay: anime.stagger(85, { start: 540 }),
       duration: 700,
       easing: 'easeOutExpo',
+      // anime.js leaves an inline transform/opacity behind once the tween finishes,
+      // which outranks the CSS hover rules (translateY lift, etc.) on these cards —
+      // clear it so :hover styling from Card.css can take over again.
+      complete: (anim) => {
+        anim.animatables.forEach(({ target }) => {
+          target.style.transform = ''
+          target.style.opacity = ''
+        })
+      },
     })
 
     anime({
@@ -154,16 +164,22 @@ export default function App() {
                 <span className="menu-link-inner" data-text="Logo">Education</span>
               </a>
             </li>
+            <li className="menu-item menu-item--command">
+              <a href={`${import.meta.env.BASE_URL}resume/mohammad-sufree.pdf`} download className="menu-link">
+                <span className="menu-link-inner" data-text="Command">Resume</span>
+              </a>
+            </li>
           </ul>
         </nav>
 
         <main>
           <section id="about" className="section section--hero section--about" aria-label="Introduction">
             <Background />
+            <h2 className="section-heading">
+               About
+            </h2>
             <div className="intro-spread-wrap">
-              
               <IntroCard />
-              
             </div>
           </section>
 
@@ -195,8 +211,8 @@ export default function App() {
 </section>
 
           <section id="education" className="section section--solid-blue" aria-label="Education">
-            <h2 className="section-heading">
-              <span className="heading-prefix">03.</span> Education
+            <EducationBackground />
+            <h2 className="section-heading">Education
             </h2>
             <div className="card-grid card-grid--edu">
               {education.map((e) => (

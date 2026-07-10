@@ -17,6 +17,7 @@ import imvidiaHero  from '../assets/pic/imvidia.png'
 import smarthomeHero from '../assets/pic/Smarthome.png'
 import qiaoHero      from '../assets/pic/Qiao.png'
 import vaccineHero   from '../assets/pic/Vaccine.png'
+import tggSplashHero from '../assets/pic/Splash.png'
 
 /** @type {import('./types').Project[]} */
 const projects = [
@@ -35,7 +36,7 @@ const projects = [
   {
     id:          'project-2',
     title:       'Vaccine Stock System',
-    year:        '02/2026',
+    year:        '11/2025',
     description: 'Collaborative group project, utilising a full Java backend, implementing Maven alongside JavaFX as the frontend framework in order to manage and track vaccine stock levels efficiently, allowing for manual adjustments and real-time monitoring.',
     heroImage:   vaccineHero,
     heroAlt:     'Vaccine Stock Management Dashboard',
@@ -46,6 +47,18 @@ const projects = [
   },
   {
     id:          'project-3',
+    title:       'Terengganu Splash',
+    year:        '12/2025',
+    description: 'Collaborative group project, utilising full VB.NET backend and frontend, alongside SQL database management, to create a desktop application for a waterpark, allowing users to book tickets, view attractions, and manage their account.',
+    heroImage:   tggSplashHero,
+    heroAlt:     'Terengganu Splash Main Page',
+    tech:        ['VB.NET', 'SQL'],
+    liveUrl:     '',
+    repoUrl:     'https://github.com/sufree11/tgg-splash',
+    status:      'Complete',
+  },
+  {
+    id:          'project-4',
     title:       'Imvidia Electronics',
     year:        '05/2026',
     description: 'Collaborative group project, utilising a full PHP and Javascript backend with a CSS3 frontend, alongside stylisation through Tailwind CSS, to create an app platform for Imvidia Electronics, allowing users to browse products, add items to their cart, and make purchases.',
@@ -57,7 +70,7 @@ const projects = [
     status:      'WIP',
   },
   {
-    id:          'project-4',
+    id:          'project-5',
     title:       'QIAO',
     year:        '06/2026',
     description: 'Flashcard based mobile application designed to help users master spoken and written Chinese through interactive and intuitive cards known as \'Qiaos\'. By keeping their learning track consistent, users will be able to rack up streaks and get badges upon reaching milestones.',
@@ -67,7 +80,7 @@ const projects = [
     liveUrl:     '',
     repoUrl:     'https://github.com/sufree11/Qiao',
     status:      'Complete',
-  },
+  }
 ]
 
 export default projects

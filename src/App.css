@@ -211,6 +211,11 @@ body {
   transform: translateX(0.3rem) translateY(-2.2rem);
 }
 
+.menu-item:nth-child(5) {
+  transform: translateX(0.3rem) translateY(-2.2rem);
+}
+
+
 .menu-link {
   --menu-tilt: -1deg;
   --menu-skew-x: 4deg;
@@ -241,6 +246,7 @@ body {
 .menu-item:nth-child(2) .menu-link { --menu-tilt: 2deg; }
 .menu-item:nth-child(3) .menu-link { --menu-tilt: -3.4deg; }
 .menu-item:nth-child(4) .menu-link { --menu-tilt: -4deg; }
+.menu-item:nth-child(5) .menu-link { --menu-tilt: 0deg; }
 .menu-item:nth-child(1) .menu-link {
   --menu-skew-x: -1deg;
   --menu-rotate-y: -1deg;
@@ -402,6 +408,7 @@ body {
 }
 
 .section--about {
+  position: relative;
   z-index: 3;
   max-width: none;
   margin: 0;
@@ -409,6 +416,12 @@ body {
   padding-left: max(2.3rem, calc((100vw - 1160px) / 2 + 2.3rem));
   padding-right: max(2.3rem, calc((100vw - 1160px) / 2 + 2.3rem));
   overflow: hidden;
+}
+
+.section--hero .section-heading {
+  position: absolute;
+  top: 6rem;
+  left: 0;
 }
 
 .intro-spread-wrap {
@@ -469,16 +482,20 @@ body {
   left: -32rem;
   font-family: var(--font-heading);
   font-size: clamp(6rem, 4vw, 5rem);
-  color:rgb(178, 178, 178); 
+  color: transparent;
+  background: #ff0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  mix-blend-mode: multiply;
   letter-spacing: -0.05em;
   margin-left: 0.5rem;
-  -webkit-text-stroke: 0.05em rgb(178, 178, 178);
+  -webkit-text-stroke: 0.2rem rgba(255, 0, 0, 0.08);
   display: flex;
   align-items: center;
   gap: 0.1rem;
   text-transform: uppercase;
   transform: skewX(-6deg) scaleY(1.2) scaleX(1.32) perspective(960px) rotateX(-16deg) rotateY(12deg) rotateZ(-12deg);
-  transform-origin: left center; 
+  transform-origin: left center;
 }
 
 .section-heading-text {
@@ -517,14 +534,15 @@ body {
 
 .footer {
   margin-top: auto;
+  font-family: var(--font-menu);
   text-align: center;
   padding: 2rem 1.2rem 2.1rem;
   font-size: 0.82rem;
   color: var(--color-text-dim);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  letter-spacing: 0.08em;
-  font-family: var(--font-command);
+  letter-spacing: -0.05em;
   text-transform: uppercase;
+  background: #001bab;
 }
 
 .footer-bracket {

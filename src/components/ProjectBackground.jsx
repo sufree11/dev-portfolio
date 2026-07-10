@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
-import skillsVideo from '../assets/vid/bg-projects.mp4'
+import eduVideo from '../assets/vid/bg-edu.mp4'
 import './Background.css'
 
-export default function SkillsBackground() {
+export default function ProjectBackground() {
   const videoRef = useRef(null)
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function SkillsBackground() {
       <video
         ref={videoRef}
         className="bg-video3 is-active"
-        src={skillsVideo}
+        src={eduVideo}
         autoPlay
         loop
         muted
