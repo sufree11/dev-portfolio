@@ -165,7 +165,7 @@ export default function App() {
               </a>
             </li>
             <li className="menu-item menu-item--command">
-              <a href={`${import.meta.env.BASE_URL}resume/mohammad-sufree.pdf`} download className="menu-link">
+              <a href={`${import.meta.env.BASE_URL}resume/mohammad-sufree-resume.pdf`} download className="menu-link">
                 <span className="menu-link-inner" data-text="Command">Resume</span>
               </a>
             </li>
