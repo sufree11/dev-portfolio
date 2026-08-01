@@ -119,11 +119,11 @@ export default function IntroCard() {
             <span className="highlight">"Who Am I?"</span> <br />
             Up-and-Coming software developer focused on building high-efficiency app platforms. <br />
             <span className="highlight">"How?"</span> <br />
-            By focusing on user experience and performance, aiming to build platforms that last. 
+            By focusing on user experience and performance, aiming to build platforms that last, and make users feel intuitive.
           </p>
           <div className="intro-status">
             <span className="status-dot" />
-            <span>Seeking internship</span>
+            <span>Intern at 2en Apps</span>
           </div>
         </Card>
       </div>

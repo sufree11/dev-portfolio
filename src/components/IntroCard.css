@@ -125,7 +125,7 @@
 }
 
 .highlight {
-  color: #00eeff;
+  color: #ff0000;
   font-weight: 600;
 }
 
@@ -187,8 +187,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #00eeff;
-  box-shadow: 0 0 0 2px rgba(0, 238, 255, 0.2), 0 0 12px rgba(0, 238, 255, 0.55);
+  background: #18ff23;
+  box-shadow: 0 0 0 2px rgba(0, 255, 119, 0.2), 0 0 12px rgba(55, 255, 0, 0.55);
   animation: pulse 2s ease-in-out infinite;
 }
 

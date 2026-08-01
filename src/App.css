@@ -1,5 +1,10 @@
 
 
+::selection {
+  background: #ff0000;
+  color: #ffffff;
+}
+
 .layout {
   position: relative;
   z-index: 3;
