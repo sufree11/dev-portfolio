@@ -80,6 +80,18 @@ const projects = [
     liveUrl:     '',
     repoUrl:     'https://github.com/sufree11/Qiao',
     status:      'Complete',
+  },
+   {
+    id:          'project-6',
+    title:       'BonsaiBuddy',
+    year:        '08/2026',
+    description: 'Mobile app designed to be a destressing companion for mental health, providing users with a virtual bonsai tree that they can take care of daily. Includes features like watering, pruning and raking for the tree.',
+    heroImage:   '',
+    heroAlt:     '',
+    tech:        ['Kotlin', 'JavaScript', 'XML'],
+    liveUrl:     '',
+    repoUrl:     'https://github.com/sufree11/BonsaiBuddy',
+    status:      'Complete',
   }
 ]
 
