@@ -18,4 +18,5 @@ My portfolio for projects & education achievements.
 |Backend|JavaScript|
 |Hosting|GitHub Pages|
 
-Feel free to look around! 
+Feel free to look around! <br>
+ <img src="src/assets/pic/tetopear.gif" width = 30px height = 30px margin-top = 1>
