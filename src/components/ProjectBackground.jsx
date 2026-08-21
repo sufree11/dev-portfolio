@@ -1,28 +1,20 @@
-import { useEffect, useRef } from 'react'
 import eduVideo from '../assets/vid/bg-edu.mp4'
+import useVideoVisibility from './useVideoVisibility.js'
 import './Background.css'
 
 export default function ProjectBackground() {
-  const videoRef = useRef(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    video.play().catch(() => {})
-  }, [])
+  const { containerRef, videoRef } = useVideoVisibility()
 
   return (
-    <div className="persona-bg" aria-hidden="true">
+    <div ref={containerRef} className="persona-bg" aria-hidden="true">
       <video
         ref={videoRef}
         className="bg-video3 is-active"
         src={eduVideo}
-        autoPlay
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
       />
     </div>
   )
