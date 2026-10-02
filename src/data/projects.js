@@ -81,18 +81,41 @@ const projects = [
     repoUrl:     'https://github.com/sufree11/Qiao',
     status:      'Complete',
   },
-   {
+  {
     id:          'project-6',
     title:       'BonsaiBuddy',
     year:        '08/2026',
     description: 'Mobile app designed to be a destressing companion for mental health, providing users with a virtual bonsai tree that they can take care of daily. Includes features like watering, pruning and raking for the tree.',
     heroImage:   '',
     heroAlt:     '',
-    tech:        ['Kotlin', 'JavaScript', 'XML'],
+    tech: ['Kotlin', 'Javascript', 'XML'],
     liveUrl:     '',
     repoUrl:     'https://github.com/sufree11/BonsaiBuddy',
+  },
+  {
+    id:          'project-7',
+    title:       'Transcribr',
+    year:        '09/2026',
+    description: 'A web-based application that allows users to upload audio and video files or record directly on the site, transcribing recognised speech into text, and then generating a summary of the content.',
+    heroImage:   '',
+    heroAlt:     '',
+    tech: ['React', 'Python', 'FastAPI', 'Temporal', 'LangChain', 'Whisper', 'Ollama'],
+    liveUrl:     '',
+    repoUrl:     'https://github.com/sufree11/Transcribr',
     status:      'Complete',
-  }
+  },
+  {
+    id:          'project-8',
+    title:       'Rankie',
+    year:        '09/2026',
+    description: 'Multiplayer music ranking site where players build a pool of songs from YouTube Music library, roll a random number of podium spots, and blind rank each track one by one. Players on the same local network can join each other with room codes or quick matchmaking.',
+    heroImage:   '',
+    heroAlt:     '',
+    tech: ['React', 'TypeScript', 'Node.js', 'WebSockets', 'Tailwind CSS', 'Vite'],
+    liveUrl:     '',
+    repoUrl:     'https://github.com/sufree11/Rankie',
+    status:      'Complete',
+  },
 ]
 
 export default projects
